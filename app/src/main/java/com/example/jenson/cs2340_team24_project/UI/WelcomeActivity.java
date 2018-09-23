@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.example.jenson.cs2340_team24_project.R;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private static int Timeout = 4000;
+    private static int Timeout = 3500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
