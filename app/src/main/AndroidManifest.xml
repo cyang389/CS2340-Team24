@@ -25,6 +25,9 @@
         <activity android:name=".UI.HomeActivity"
                   android:label="Welcome">
         </activity>
+        <activity android:name=".LoginActivity"
+                  android:label="login">
+        </activity>
     </application>
 
 </manifest>
