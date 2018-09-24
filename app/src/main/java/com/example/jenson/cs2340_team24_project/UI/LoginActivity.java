@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jenson.cs2340_team24_project.UI.ApplicationActivity;
 import com.example.jenson.cs2340_team24_project.UI.HomeActivity;
 
 import java.util.ArrayList;
@@ -62,7 +63,8 @@ public class LoginActivity extends AppCompatActivity {
 
     // UI references.
     //private AutoCompleteTextView mEmailView;
-    private EditText mPasswordView, mUserName;
+    private EditText mPasswordView;
+    private EditText mUserName;
     private View mProgressView;
     private View mLoginFormView;
 
@@ -71,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mUsername = (EditText) findViewById(R.id.email);
+        mUserName = (EditText) findViewById(R.id.email);
         //populateAutoComplete();
         mPasswordView = (EditText) findViewById(R.id.password);
         /*
@@ -95,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                 String username = mUserName.getText().toString();
                 String pwd = mPasswordView.getText().toString();
                 if (username.equals("user") && pwd.equals("pass")) {
-                    Intent MainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent MainIntent = new Intent(LoginActivity.this, ApplicationActivity.class);
                     startActivity(MainIntent);
                     Toast.makeText(LoginActivity.this, "You are logged in.", Toast.LENGTH_LONG).show();
                 } else {
@@ -107,8 +109,8 @@ public class LoginActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(i);
             }
         });
 
@@ -144,6 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                     });
         } else {
             requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+        }
         }
         return false;
     }
