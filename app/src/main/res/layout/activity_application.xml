@@ -7,4 +7,10 @@
         android:layout_height="match_parent"
         tools:context=".UI.ApplicationActivity">
 
+    <Button
+            android:text="Log Out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="148dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="108dp"/>
 </android.support.constraint.ConstraintLayout>
