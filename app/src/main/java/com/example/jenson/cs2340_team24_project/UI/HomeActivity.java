@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.jenson.cs2340_team24_project.LoginActivity;
+import com.example.jenson.cs2340_team24_project.UI.LoginActivity;
 import com.example.jenson.cs2340_team24_project.R;
 
 public class HomeActivity extends AppCompatActivity {
