@@ -1,4 +1,4 @@
-package com.example.jenson.cs2340_team24_project;
+package com.example.jenson.cs2340_team24_project.UI;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,6 +31,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.ApplicationActivity;
 import com.example.jenson.cs2340_team24_project.UI.HomeActivity;
 
