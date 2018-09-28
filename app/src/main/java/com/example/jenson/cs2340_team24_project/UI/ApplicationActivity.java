@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import com.example.jenson.cs2340_team24_project.LoginActivity;
+import com.example.jenson.cs2340_team24_project.UI.LoginActivity;
 import com.example.jenson.cs2340_team24_project.R;
 
 public class ApplicationActivity extends AppCompatActivity {
