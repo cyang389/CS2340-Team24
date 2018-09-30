@@ -1,4 +1,4 @@
-package com.example.jenson.cs2340_team24_project.UI;
+package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.content.Intent;
 import android.os.Handler;

@@ -1,4 +1,4 @@
-package com.example.jenson.cs2340_team24_project.UI;
+package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.Button;
 import android.widget.Spinner;
