@@ -37,6 +37,7 @@ import com.example.jenson.cs2340_team24_project.UI.HomeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -74,9 +75,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
-        mUserName = (EditText) findViewById(R.id.email);
+        mUserName = findViewById(R.id.email);
         //populateAutoComplete();
-        mPasswordView = (EditText) findViewById(R.id.password);
+        mPasswordView = findViewById(R.id.password);
         /*
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -90,14 +91,17 @@ public class LoginActivity extends AppCompatActivity {
         });
         */
 
-        Button email_sign_in_button = (Button) findViewById(R.id.email_sign_in_button);
+        Button email_sign_in_button = findViewById(R.id.email_sign_in_button);
         email_sign_in_button.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 //attemptLogin();
                 String username = mUserName.getText().toString();
                 String pwd = mPasswordView.getText().toString();
-                if (username.equals("user") && pwd.equals("pass")) {
+                HashMap userinfo = RegisterActivity.userinfo;
+                if (userinfo.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Please register first.", Toast.LENGTH_LONG).show();
+                } else if (pwd.equals(userinfo.get(username))) {
                     Intent MainIntent = new Intent(LoginActivity.this, ApplicationActivity.class);
                     startActivity(MainIntent);
                     Toast.makeText(LoginActivity.this, "You are logged in.", Toast.LENGTH_LONG).show();

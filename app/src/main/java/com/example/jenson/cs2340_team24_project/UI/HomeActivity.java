@@ -14,13 +14,24 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Button button1 = (Button) findViewById(R.id.button);
-        button1.setOnClickListener(new View.OnClickListener() {
+        Button btnLogin = findViewById(R.id.btnWelcomeLogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
+
+        Button btnRegister = findViewById(R.id.btnWelcomeRegister);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(HomeActivity.this, RegisterActivity.class);
+                startActivity(i);
+            }
+        });
+
+
     }
 }
