@@ -10,9 +10,15 @@ public class User {
 
     private String _username;
     private String _password;
+    private Responsibility _res;
 
-    public User(String username, String password) {
+    public User(String username, String password, Responsibility r) {
         _username = username;
         _password = password;
+        _res = r;
+    }
+
+    public User(String username, String password) {
+        this(username, password, Responsibility.USER);
     }
 }
