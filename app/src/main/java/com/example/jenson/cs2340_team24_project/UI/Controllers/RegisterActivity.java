@@ -1,6 +1,7 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.jenson.cs2340_team24_project.R;
+import com.example.jenson.cs2340_team24_project.UI.Models.Database;
+import com.example.jenson.cs2340_team24_project.UI.Models.Responsibility;
 import com.example.jenson.cs2340_team24_project.UI.Models.User;
 
 import java.util.HashMap;
@@ -23,7 +26,12 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnRegister;
     private Button btnCancel;
     private Spinner responsibilitySpinner;
-    public static HashMap userinfo = new HashMap();
+
+    private String uName;
+    private String uPass;
+    private Responsibility uRes;
+    private User newUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +45,11 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = mUsername.getText().toString();
-                String password = mPasswordView.getText().toString();
-                userinfo.put(username, password);
+                uName = mUsername.getText().toString();
+                uPass = mPasswordView.getText().toString();
+                uRes = (Responsibility) responsibilitySpinner.getSelectedItem();
+                newUser = new User(uName, uPass, uRes);
+                Database.addUser(uName, newUser);
                 Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(i);
                 Toast.makeText(RegisterActivity.this, "You are successfully registered. Please Login.", Toast.LENGTH_SHORT).show();
@@ -59,5 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, User.legalResponsibilities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         responsibilitySpinner.setAdapter(adapter);
+
     }
 }

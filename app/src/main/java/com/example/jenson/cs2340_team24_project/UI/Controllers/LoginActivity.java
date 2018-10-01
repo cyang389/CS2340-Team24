@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.jenson.cs2340_team24_project.R;
+import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 
 import java.util.HashMap;
 
@@ -71,10 +72,9 @@ public class LoginActivity extends AppCompatActivity {
                 //attemptLogin();
                 String username = mUserName.getText().toString();
                 String pwd = mPasswordView.getText().toString();
-                HashMap userinfo = RegisterActivity.userinfo;
-                if (userinfo.isEmpty()) {
+                if (Database.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Please register first.", Toast.LENGTH_LONG).show();
-                } else if (pwd.equals(userinfo.get(username))) {
+                } else if (pwd.equals(Database.getUser(username).getPassword())) {
                     Intent MainIntent = new Intent(LoginActivity.this, ApplicationActivity.class);
                     startActivity(MainIntent);
                     Toast.makeText(LoginActivity.this, "You are logged in.", Toast.LENGTH_LONG).show();

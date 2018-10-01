@@ -9,6 +9,8 @@ public class User {
     private String _username;
     private String _password;
     private Responsibility _res;
+    private boolean acctState;
+    private String contactInfo;
 
     public User(String username, String password, Responsibility r) {
         _username = username;
@@ -18,5 +20,16 @@ public class User {
 
     public User(String username, String password) {
         this(username, password, Responsibility.USER);
+    }
+
+    public void setResponsibility(Responsibility r) {
+        this._res = r;
+    }
+    public Responsibility getResponsibility() {
+        return this._res;
+    }
+
+    public String getPassword() {
+        return this._password;
     }
 }
