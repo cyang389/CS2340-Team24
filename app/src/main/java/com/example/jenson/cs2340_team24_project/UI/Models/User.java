@@ -22,6 +22,7 @@ public class User {
         this(username, password, Responsibility.USER);
     }
 
+    //Responsibility setter and getter
     public void setResponsibility(Responsibility r) {
         this._res = r;
     }
@@ -29,7 +30,19 @@ public class User {
         return this._res;
     }
 
+    //Password setter and getter
+    public void setPassword(String pass) {
+        this._password = pass;
+    }
     public String getPassword() {
         return this._password;
+    }
+
+    //Username setter and getter
+    public void setUsername(String name) {
+        this._username = name;
+    }
+    public String getUsername() {
+        return this._username;
     }
 }
