@@ -3,7 +3,9 @@ package com.example.jenson.cs2340_team24_project.UI.Models;
 import java.util.HashMap;
 
 public class Database {
-    private static HashMap<String, User> userinfo = new HashMap<String, User>();
+    private static HashMap<String, User> userinfo = new HashMap<String, User>(1000);
+    //donation information
+    //location information
 
     public Database() {
     }
