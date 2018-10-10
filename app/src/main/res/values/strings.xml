@@ -14,4 +14,7 @@
 
     <!-- Strings related to register -->
     <string name="prompt_register">Register</string>
+
+    <!-- String related to logout -->
+    <string name="prompt_logout">LOG OUT</string>
 </resources>
