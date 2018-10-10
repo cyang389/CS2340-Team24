@@ -5,6 +5,11 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.jenson.cs2340_team24_project.R;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class WelcomeActivity extends AppCompatActivity {
     private static int Timeout = 3500;
@@ -21,5 +26,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 finish();
             }
         },Timeout);
+
+
     }
 }
