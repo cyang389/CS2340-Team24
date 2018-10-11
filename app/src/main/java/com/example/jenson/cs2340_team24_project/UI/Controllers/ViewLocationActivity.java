@@ -2,6 +2,8 @@ package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.example.jenson.cs2340_team24_project.R;
@@ -11,16 +13,48 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 import com.example.jenson.cs2340_team24_project.R;
+import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 public class ViewLocationActivity extends AppCompatActivity {
+
+    private static final String TAG = "ViewLocationActivity";
+
+    private ArrayList<String> mLocationNames = new ArrayList<>();
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_location);
+        Log.d(TAG, "onCreate: started.");
+        readCSVFile();
+        initRecyclerView();
+
+        HashMap<String, Location> locations = Database.getLocations();
+
+
+
+
+
+    }
+
+
+    private void initRecyclerView() {
+        Log.d(TAG, "initRecyclerView: init recyclerview");
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mLocationNames);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
 
@@ -34,6 +68,7 @@ public class ViewLocationActivity extends AppCompatActivity {
                 String[] tokens = line.split(",");
                 int id = Integer.parseInt(tokens[0]);
                 String name = tokens[1];
+                mLocationNames.add(name);
                 double latitude = Double.parseDouble(tokens[2]);
                 double longitude = Double.parseDouble(tokens[3]);
                 String address = tokens[4];
@@ -44,6 +79,7 @@ public class ViewLocationActivity extends AppCompatActivity {
                 String phone = tokens[9];
                 String website = tokens[10];
                 Location l = new Location(name, type, longitude, latitude, address, phone, website);
+                Database.addLocation(l);
             }
         } catch (IOException e) {
             Log.e("ViewLocationActivity", "Error reading assets.");
