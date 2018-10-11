@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 import com.example.jenson.cs2340_team24_project.R;
+import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 public class ViewLocationActivity extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class ViewLocationActivity extends AppCompatActivity {
                 String type = tokens[8];
                 String phone = tokens[9];
                 String website = tokens[10];
-
+                Location l = new Location(name, type, longitude, latitude, address, phone, website);
             }
         } catch (IOException e) {
             Log.e("ViewLocationActivity", "Error reading assets.");

@@ -29,6 +29,7 @@
             android:label="login"></activity>
         <activity android:name=".UI.Controllers.ApplicationActivity"></activity>
         <activity android:name=".UI.Controllers.RegisterActivity"></activity>
+        <activity android:name=".UI.Controllers.ViewLocationActivity"></activity>
     </application>
 
 </manifest>

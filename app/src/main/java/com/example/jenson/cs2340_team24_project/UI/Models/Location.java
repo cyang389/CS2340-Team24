@@ -3,18 +3,20 @@ package com.example.jenson.cs2340_team24_project.UI.Models;
 public class Location {
     private String name;
     private String type;
-    private String longtitude;
-    private String latitude;
+    private double longtitude;
+    private double latitude;
     private String address;
     private String phone;
-    public Location(String name, String type, String lontitude,
-                    String latitude, String address, String phone) {
+    private String website;
+    public Location(String name, String type, double lontitude,
+                    double latitude, String address, String phone, String website) {
         this.name = name;
         this.type = type;
         this.longtitude = lontitude;
         this.latitude = latitude;
         this.address = address;
         this.phone = phone;
+        this.website = website;
     }
     public String getName() {
         return name;
@@ -22,10 +24,10 @@ public class Location {
     public String getType() {
         return type;
     }
-    public String getLongtitude() {
+    public double getLongtitude() {
         return longtitude;
     }
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
     public String getAddress() {
@@ -34,6 +36,7 @@ public class Location {
     public String getPhone() {
         return phone;
     }
+    public String getWebsite() { return website; }
 
     public void setName(String name) {
         this.name = name;
@@ -41,10 +44,10 @@ public class Location {
     public void setType(String type) {
         this.type = type;
     }
-    public void setLongtitude(String longtitude) {
+    public void setLongtitude(double longtitude) {
         this.longtitude = longtitude;
     }
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
     public void setAddress(String address) {
@@ -53,4 +56,5 @@ public class Location {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+    public void setWebsite(String website) { this.website = website; }
 }
