@@ -36,6 +36,19 @@ public class DetailLocationActivity extends AppCompatActivity {
 
     private void setImage(Location location) {
         TextView name = findViewById(R.id.name);
-        name.setText(location.getName());
+        TextView type = findViewById(R.id.type);
+        TextView longitude = findViewById(R.id.longtitude);
+        TextView latitude = findViewById(R.id.latitude);
+        TextView address = findViewById(R.id.address);
+        TextView phone = findViewById(R.id.phone);
+        TextView website = findViewById(R.id.website);
+
+        name.setText("Name: " + location.getName());
+        type.setText("Type: " + location.getType());
+        longitude.setText("Longitude: " + location.getLongtitude());
+        latitude.setText("Latitude: " + location.getLatitude());
+        address.setText("Address: " + location.getAddress());
+        phone.setText("Phone: " + location.getPhone());
+        website.setText("Website: " + location.getWebsite());
     }
 }
