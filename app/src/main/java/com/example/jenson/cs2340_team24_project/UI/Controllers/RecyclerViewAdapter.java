@@ -1,6 +1,7 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -36,14 +37,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        Log.d(TAG, "onBindViewHolder: called.");
-
         holder.locationname.setText(mLocationnames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "onClick: clicked on: " + mLocationnames.get(position));
                 Toast.makeText(mContext, mLocationnames.get(position), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(mContext, DetailLocationActivity.class);
+                intent.putExtra("location_name", mLocationnames.get(position));
+                mContext.startActivity(intent);
             }
         });
     }
