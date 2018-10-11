@@ -29,7 +29,7 @@ public class ApplicationActivity extends AppCompatActivity {
         viewLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ViewLocationActivity.this, HomeActivity.class);
+                Intent i = new Intent(ApplicationActivity.this, ViewLocationActivity.class);
                 startActivity(i);
             }
         });
