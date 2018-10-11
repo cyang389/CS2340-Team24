@@ -24,5 +24,14 @@ public class ApplicationActivity extends AppCompatActivity {
                 Toast.makeText(ApplicationActivity.this, "You are logged out.", Toast.LENGTH_LONG).show();
             }
         });
+
+        Button viewLocationButton = (Button) findViewById(R.id.button4);
+        viewLocationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewLocationActivity.this, HomeActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }
