@@ -17,4 +17,7 @@
 
     <!-- String related to logout -->
     <string name="prompt_logout">LOG OUT</string>
+
+    <!-- String related to view location data -->
+    <string name="prompt_viewdata">VIEW DATA</string>
 </resources>
