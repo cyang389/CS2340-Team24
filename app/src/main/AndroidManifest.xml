@@ -23,13 +23,14 @@
         </activity>
         <activity
             android:name=".UI.Controllers.HomeActivity"
-            android:label="Welcome"></activity>
+            android:label="Welcome" />
         <activity
             android:name=".UI.Controllers.LoginActivity"
-            android:label="login"></activity>
-        <activity android:name=".UI.Controllers.ApplicationActivity"></activity>
-        <activity android:name=".UI.Controllers.RegisterActivity"></activity>
-        <activity android:name=".UI.Controllers.ViewLocationActivity"></activity>
+            android:label="login" />
+        <activity android:name=".UI.Controllers.ApplicationActivity" />
+        <activity android:name=".UI.Controllers.RegisterActivity" />
+        <activity android:name=".UI.Controllers.ViewLocationActivity" />
+        <activity android:name=".UI.Controllers.DetailLocationActivity"></activity>
     </application>
 
 </manifest>
