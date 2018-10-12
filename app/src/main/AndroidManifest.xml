@@ -25,12 +25,20 @@
             android:name=".UI.Controllers.HomeActivity"
             android:label="Welcome" />
         <activity
+            android:name=".UI.Controllers.RegisterActivity"
+            android:label="Register" />
+        <activity
             android:name=".UI.Controllers.LoginActivity"
-            android:label="login" />
-        <activity android:name=".UI.Controllers.ApplicationActivity" />
-        <activity android:name=".UI.Controllers.RegisterActivity" />
-        <activity android:name=".UI.Controllers.ViewLocationActivity" />
-        <activity android:name=".UI.Controllers.DetailLocationActivity"></activity>
+            android:label="Login" />
+        <activity
+            android:name=".UI.Controllers.ViewLocationActivity"
+            android:label="Locations" />
+        <activity
+            android:name=".UI.Controllers.DetailLocationActivity"
+            android:label="Location Details" />
+        <activity
+            android:name=".UI.Controllers.ApplicationActivity"
+            android:label="Home"/>
     </application>
 
 </manifest>
