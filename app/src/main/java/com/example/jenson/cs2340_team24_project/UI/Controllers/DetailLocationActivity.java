@@ -24,7 +24,7 @@ public class DetailLocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_location);
         getIncomingIntent();
-        setImage(location);
+        setInfo(location);
     }
 
     private void getIncomingIntent() {
@@ -34,7 +34,7 @@ public class DetailLocationActivity extends AppCompatActivity {
         }
     }
 
-    private void setImage(Location location) {
+    private void setInfo(Location location) {
         TextView name = findViewById(R.id.name);
         TextView type = findViewById(R.id.type);
         TextView longitude = findViewById(R.id.longtitude);
