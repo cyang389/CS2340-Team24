@@ -1,5 +1,7 @@
 package com.example.jenson.cs2340_team24_project.UI.Models;
 
+import java.util.ArrayList;
+
 public class Location {
     private String name;
     private String type;
@@ -8,6 +10,7 @@ public class Location {
     private String address;
     private String phone;
     private String website;
+    private ArrayList<Donation> donations;
     public Location(String name, String type, double lontitude,
                     double latitude, String address, String phone, String website) {
         this.name = name;
