@@ -1,10 +1,13 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
 
@@ -41,10 +44,14 @@ public class ViewLocationActivity extends AppCompatActivity {
         initRecyclerView();
 
         HashMap<String, Location> locations = Database.getLocations();
-
-
-
-
+        Button viewDonations = findViewById(R.id.button6);
+        viewDonations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewLocationActivity.this, ViewDonationActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 

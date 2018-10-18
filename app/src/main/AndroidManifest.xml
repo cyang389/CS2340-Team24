@@ -38,7 +38,10 @@
             android:label="Location Details" />
         <activity
             android:name=".UI.Controllers.ApplicationActivity"
-            android:label="Home"/>
+            android:label="Home" />
+        <activity
+            android:name=".UI.Controllers.ViewDonationActivity"
+            android:label="Donations" />
     </application>
 
 </manifest>
