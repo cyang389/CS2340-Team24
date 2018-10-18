@@ -6,11 +6,11 @@ import java.util.List;
 public class User {
     public static List<Responsibility> legalResponsibilities = Arrays.asList(Responsibility.values());
 
-    private String _username;
-    private String _password;
-    private Responsibility _res;
-    private boolean acctState;
-    private String contactInfo;
+    protected String _username;
+    protected String _password;
+    protected Responsibility _res;
+    protected boolean acctState;
+    protected String contactInfo;
 
     public User(String username, String password, Responsibility r) {
         _username = username;
