@@ -40,6 +40,9 @@ public class Location {
         return phone;
     }
     public String getWebsite() { return website; }
+    public ArrayList<Donation> getDonations() {
+        return donations;
+    }
 
     public void setName(String name) {
         this.name = name;
