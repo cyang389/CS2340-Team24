@@ -23,18 +23,24 @@ public class ViewDonationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_donation);
         getIncomingIntent();
         ArrayList<Donation> donationArrayList = location.getDonations();
-        for (int i = 0; i < donationArrayList.size(); i++) {
-            String name = donationArrayList.get(i).getName();
-            donations.add(name);
+        if (donationArrayList != null) {
+            for (int i = 0; i < donationArrayList.size(); i++) {
+                String name = donationArrayList.get(i).getName();
+                donations.add(name);
+            }
+        }
+        if (donations != null) {
+            initRecyclerView();
         }
     }
 
     private void getIncomingIntent() {
-        if(getIntent().hasExtra("location_name")) {
+        if (getIntent().hasExtra("location_name")) {
             String name = getIntent().getStringExtra("location_name");
             location = Database.getLocations().get(name);
         }
     }
+
 
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);

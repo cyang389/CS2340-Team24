@@ -1,9 +1,12 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.jenson.cs2340_team24_project.R;
@@ -25,6 +28,15 @@ public class DetailLocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail_location);
         getIncomingIntent();
         setInfo(location);
+        Button viewDonations = findViewById(R.id.button7);
+        viewDonations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailLocationActivity.this, ViewDonationActivity.class);
+                i.putExtra("location_name", location.getName());
+                startActivity(i);
+            }
+        });
     }
 
     private void getIncomingIntent() {

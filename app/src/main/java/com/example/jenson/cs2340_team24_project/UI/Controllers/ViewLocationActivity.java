@@ -39,25 +39,15 @@ public class ViewLocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_location);
-        Log.d(TAG, "onCreate: started.");
         readCSVFile();
         initRecyclerView();
 
         HashMap<String, Location> locations = Database.getLocations();
-        Button viewDonations = findViewById(R.id.button6);
-        viewDonations.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ViewLocationActivity.this, ViewDonationActivity.class);
-                startActivity(i);
-            }
-        });
 
     }
 
 
     private void initRecyclerView() {
-        Log.d(TAG, "initRecyclerView: init recyclerview");
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mLocationNames);
         recyclerView.setAdapter(adapter);
