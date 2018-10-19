@@ -1,14 +1,16 @@
 package com.example.jenson.cs2340_team24_project.UI.Models;
 import java.sql.Timestamp;
+import java.util.Arrays;
+import java.util.List;
 
 public class Donation {
     private Location location;
-    private String name;
     private String shortDescription;
     private String fullDescription;
     private double value;
     private String comments;
     private Timestamp time;
+    private DonationType type = DonationType.OTHER;
 
     public Donation(Location l, Timestamp t, double v) {
         this.location = l;
@@ -53,10 +55,10 @@ public class Donation {
     public void setDonationTime(Timestamp t) {
         this.time = t;
     }
-    public String getName() {
-        return name;
+    public void setType(DonationType type) {
+        this.type = type;
     }
-    public void setName(String s) {
-        this.name = s;
+    public DonationType getType() {
+        return type;
     }
 }
