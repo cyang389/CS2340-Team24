@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="date" />
 
     <TextView
         android:id="@+id/locationTextView"
@@ -127,5 +127,11 @@
         android:layout_weight="1"
         android:text="Add" />
 
+    <Button
+        android:id="@+id/addDonationCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Cancel" />
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.jenson.cs2340_team24_project.UI.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -56,6 +57,7 @@ public class AddDonationActivity extends AppCompatActivity {
                 new ArrayList<String>(Database.getLocations().keySet()));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sLocation.setAdapter(adapter);
+        sLocation.setSelection(Database.findLocation(location.getName()));
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
                 new ArrayList<DonationType>(Database.getLegalTypes()));
@@ -64,6 +66,7 @@ public class AddDonationActivity extends AppCompatActivity {
 
 
         final Button addButton = (Button) findViewById(R.id.addButton);
+        final Button cancelButton = (Button) findViewById(R.id.addDonationCancel);
 
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +74,7 @@ public class AddDonationActivity extends AppCompatActivity {
                 String a = mTimeStamp.getText().toString();
 
                 try {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS");
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                     Date parsedDate = dateFormat.parse(a);
                     timeStamp = new java.sql.Timestamp(parsedDate.getTime());
                 } catch (ParseException e) {
@@ -79,13 +82,30 @@ public class AddDonationActivity extends AppCompatActivity {
                 }
                 shortDescription = mShortDescription.getText().toString();
                 fullDescription = mFullDescription.getText().toString();
+                String string = mValue.getText().toString();
+                if (TextUtils.isEmpty(string)) {
+                    addButton.setEnabled(false);
+                }
+                addButton.setEnabled(true);
                 value = Double.parseDouble(mValue.getText().toString());
                 comments = mComment.getText().toString();
                 donation = new Donation(location, timeStamp, value);
+                donation.setLocation((Location) Database.getLocations().get(sLocation.getSelectedItem()));
+                donation.setType((DonationType) sCategory.getSelectedItem());
                 donation.setComments(comments);
                 donation.setFullDescription(fullDescription);
                 donation.setShortDescription(shortDescription);
                 location.addDonation(donation);
+                Database.addDonation(donation);
+                Intent i = new Intent(AddDonationActivity.this, ViewDonationActivity.class);
+                i.putExtra("location_name", location.getName());
+                startActivity(i);
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent i = new Intent(AddDonationActivity.this, ViewDonationActivity.class);
                 i.putExtra("location_name", location.getName());
                 startActivity(i);

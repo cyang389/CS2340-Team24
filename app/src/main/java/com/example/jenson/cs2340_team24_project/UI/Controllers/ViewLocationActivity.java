@@ -43,6 +43,14 @@ public class ViewLocationActivity extends AppCompatActivity {
         initRecyclerView();
 
         HashMap<String, Location> locations = Database.getLocations();
+        Button back = findViewById(R.id.viewLocationBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewLocationActivity.this, ApplicationActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 
