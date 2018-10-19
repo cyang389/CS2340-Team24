@@ -3,7 +3,6 @@ import java.sql.Timestamp;
 
 public class Donation {
     private Location location;
-    private String name;
     private String shortDescription;
     private String fullDescription;
     private double value;
@@ -52,11 +51,5 @@ public class Donation {
     }
     public void setDonationTime(Timestamp t) {
         this.time = t;
-    }
-    public String getName() {
-        return name;
-    }
-    public void setName(String s) {
-        this.name = s;
     }
 }

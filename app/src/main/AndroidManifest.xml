@@ -42,6 +42,10 @@
         <activity
             android:name=".UI.Controllers.ViewDonationActivity"
             android:label="Donations" />
+        <activity
+            android:name=".UI.Controllers.AddDonationActivity"
+            android:label="Add Donation"
+            />
     </application>
 
 </manifest>
