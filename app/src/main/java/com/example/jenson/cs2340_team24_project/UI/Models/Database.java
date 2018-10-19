@@ -1,10 +1,13 @@
 package com.example.jenson.cs2340_team24_project.UI.Models;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Database {
     private static HashMap<String, User> userinfo = new HashMap<String, User>(1000);
     private static HashMap<String, Location> locations = new HashMap<>();
+    private static List<DonationType> legalTypes = Arrays.asList(DonationType.values());
     //donation information
     //location information
 
@@ -28,4 +31,8 @@ public class Database {
     public static HashMap<String, Location> getLocations() { return locations; }
 
     public static Location getLocation(String name) { return locations.get(name); }
+
+    public static List<DonationType> getLegalTypes() {
+        return legalTypes;
+    }
 }

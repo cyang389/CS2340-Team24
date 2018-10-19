@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
+import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import java.sql.Timestamp;
@@ -56,6 +57,11 @@ public class AddDonationActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sLocation.setAdapter(adapter);
 
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
+                new ArrayList<DonationType>(Database.getLegalTypes()));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sCategory.setAdapter(adapter1);
+
 
         final Button addButton = (Button) findViewById(R.id.addButton);
 
@@ -73,6 +79,7 @@ public class AddDonationActivity extends AppCompatActivity {
                 }
                 shortDescription = mShortDescription.getText().toString();
                 fullDescription = mFullDescription.getText().toString();
+                value = Double.parseDouble(mValue.getText().toString());
                 comments = mComment.getText().toString();
                 donation = new Donation(location, timeStamp, value);
                 donation.setComments(comments);
