@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="50"
-        android:id="@+id/image"
+        android:id="@+id/imageDonation"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
         />
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/name"
+        android:id="@+id/donationTime"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/type"
+        android:id="@+id/donationLocation"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/longtitude"
+        android:id="@+id/donationShortDescription"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/latitude"
+        android:id="@+id/donationFullDescription"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/address"
+        android:id="@+id/donationValue"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/phone"
+        android:id="@+id/donationCategory"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
@@ -83,30 +83,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
-        android:id="@+id/website"
+        android:id="@+id/donationComments"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="7dp"
         android:text="name"
         android:textSize="15sp"
         android:textColor="#000"/>
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:layout_weight="1"
-        android:text="View Donations" />
-
-    <Button
-        android:id="@+id/detailLocationBack"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginLeft="100dp"
-        android:layout_marginRight="100dp"
-        android:text="Back" />
 
 
 </LinearLayout>

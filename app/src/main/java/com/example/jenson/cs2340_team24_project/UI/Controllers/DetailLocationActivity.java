@@ -37,6 +37,15 @@ public class DetailLocationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        Button back = findViewById(R.id.detailLocationBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DetailLocationActivity.this, ViewLocationActivity.class);
+                i.putExtra("location_name", location.getName());
+                startActivity(i);
+            }
+        });
     }
 
     private void getIncomingIntent() {

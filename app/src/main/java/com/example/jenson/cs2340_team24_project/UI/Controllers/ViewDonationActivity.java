@@ -45,6 +45,16 @@ public class ViewDonationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        Button back = findViewById(R.id.viewDonationBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewDonationActivity.this, DetailLocationActivity.class);
+                i.putExtra("location_name", location.getName());
+                startActivity(i);
+            }
+        });
     }
 
     private void getIncomingIntent() {
@@ -57,7 +67,7 @@ public class ViewDonationActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view1);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, donations);
+        DonationAdpater adapter = new DonationAdpater(this, donations);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
