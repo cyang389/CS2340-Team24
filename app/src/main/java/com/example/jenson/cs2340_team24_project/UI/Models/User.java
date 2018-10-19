@@ -1,25 +1,30 @@
 package com.example.jenson.cs2340_team24_project.UI.Models;
 
+import com.example.jenson.cs2340_team24_project.UI.Controllers.RegisterActivity;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class User {
     public static List<Responsibility> legalResponsibilities = Arrays.asList(Responsibility.values());
 
+    protected String _email;
     protected String _username;
-    protected String _password;
     protected Responsibility _res;
     protected boolean acctState;
-    protected String contactInfo;
 
-    public User(String username, String password, Responsibility r) {
+    public User(String email, String username, Responsibility r) {
+        _email = email;
         _username = username;
-        _password = password;
         _res = r;
+        acctState = true;
     }
 
-    public User(String username, String password) {
-        this(username, password, Responsibility.USER);
+    public User(String email, String username, Responsibility r, boolean b) {
+        _email = email;
+        _username = username;
+        _res = r;
+        acctState = b;
     }
 
     //Responsibility setter and getter
@@ -30,19 +35,27 @@ public class User {
         return this._res;
     }
 
-    //Password setter and getter
-    public void setPassword(String pass) {
-        this._password = pass;
-    }
-    public String getPassword() {
-        return this._password;
-    }
-
     //Username setter and getter
-    public void setUsername(String name) {
-        this._username = name;
+    public void setUsername(String s) {
+        this._username = s;
     }
     public String getUsername() {
-        return this._username;
+        return _username;
+    }
+
+    //Email getter and setter
+    public void setEmail(String s) {
+        this._email = s;
+    }
+    public String getEmail() {
+        return _email;
+    }
+
+    //Account state setter and getter
+    public void setAcctState(boolean b) {
+        this.acctState = b;
+    }
+    public boolean getAcctState() {
+        return acctState;
     }
 }

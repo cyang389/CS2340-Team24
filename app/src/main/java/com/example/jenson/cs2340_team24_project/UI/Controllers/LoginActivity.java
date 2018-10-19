@@ -45,6 +45,12 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.email_sign_in_button);
         btnCancel = findViewById(R.id.button2);
 
+        if (firebaseAuth.getCurrentUser() != null) {
+            finish();
+            Intent i = new Intent(LoginActivity.this, ApplicationActivity.class);
+            startActivity(i);
+        }
+
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +61,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attemptLogin();
-                Intent i = new Intent(LoginActivity.this, ApplicationActivity.class);
-                startActivity(i);
+                attemptLogin();;
             }
         });
     }
@@ -80,15 +84,18 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setMessage("Logging in...");
         progressDialog.show();
 
-        //showProgressDialog();
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this,
                                     "You have logged in.",
                                     Toast.LENGTH_LONG).show();
+                            finish();
+                            Intent i = new Intent(LoginActivity.this, ApplicationActivity.class);
+                            startActivity(i);
                         } else {
                             Toast.makeText(LoginActivity.this,
                                     "Login failed.",

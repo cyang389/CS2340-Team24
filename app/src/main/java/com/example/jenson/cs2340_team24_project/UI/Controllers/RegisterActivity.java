@@ -22,15 +22,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import org.w3c.dom.Text;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "RegisterActivity";
 
     private EditText mPasswordField;
     private EditText mEmailField;
+    private EditText mUsernameField;
     private Button btnRegister;
     private Button btnCancel;
     private Spinner responsibilitySpinner;
@@ -38,13 +38,15 @@ public class RegisterActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
 
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mEmailField = findViewById(R.id.userNameReg);
+        mEmailField = findViewById(R.id.emailReg);
+        mUsernameField = findViewById(R.id.usernameReg);
         mPasswordField = findViewById(R.id.passWordReg);
         btnCancel = findViewById(R.id.btnCancelReg);
         btnRegister = findViewById(R.id.btnRegister);
@@ -53,11 +55,15 @@ public class RegisterActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         btnRegister.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveUserInfo();
                 createAccount();
+
+                finish();
                 Intent i = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(i);
             }
@@ -76,16 +82,31 @@ public class RegisterActivity extends AppCompatActivity {
         responsibilitySpinner.setAdapter(adapter);
     }
 
-    private void updateUI(FirebaseUser user) {
+    private void saveUserInfo() {
+        String email = mEmailField.getText().toString().trim();
+        String username = mUsernameField.getText().toString().trim();
+        Responsibility res = (Responsibility) responsibilitySpinner.getSelectedItem();
+        boolean state = true;
+        User newuser = new User(email, username, res, state);
+        databaseReference.child("users").child(username).setValue(newuser);
+        Toast.makeText(this, "User information saved.", Toast.LENGTH_LONG).show();
+
     }
 
     private void createAccount() {
         String email = mEmailField.getText().toString().trim();
+        String username = mUsernameField.getText().toString().trim();
         String password = mPasswordField.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(this,
                     "Please provide your email address.",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (TextUtils.isEmpty(username)) {
+            Toast.makeText(this,
+                    "Please provide your username.",
                     Toast.LENGTH_SHORT).show();
             return;
         }
@@ -105,36 +126,13 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(RegisterActivity.this, "Registered successfully.", Toast.LENGTH_LONG).show();
+
                         } else {
                             Toast.makeText(RegisterActivity.this, "Registration failed.", Toast.LENGTH_LONG).show();
                         }
+                        progressDialog.dismiss();
                     }
                 });
-
-
-        progressDialog.hide();
+        progressDialog.dismiss();
     }
-    /*
-    private void sendEmailVerification() {
-        //findViewById(R.id.btnRegister).setEnabled(false);
-        final FirebaseUser user = mAuth.getCurrentUser();
-        user.sendEmailVerification()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        //findViewById(R.id.btnRegister).setEnabled(true);
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this,
-                                    "Verification email sent to " + user.getEmail() + ". Please verify your email",
-                                    Toast.LENGTH_LONG).show();
-                        } else {
-                            Log.e(TAG, "sendVerification", task.getException());
-                            Toast.makeText(RegisterActivity.this,
-                                    "Failed to send verification email.",
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
-    }
-    */
 }

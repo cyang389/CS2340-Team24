@@ -3,22 +3,43 @@ package com.example.jenson.cs2340_team24_project.UI.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.jenson.cs2340_team24_project.R;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class ApplicationActivity extends AppCompatActivity {
+
+    private FirebaseAuth firebaseAuth;
+    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
-        Button logoutButton = (Button) findViewById(R.id.button3);
-        logoutButton.setOnClickListener(new View.OnClickListener() {
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null) {
+            finish();
+            Intent i = new Intent(ApplicationActivity.this, LoginActivity.class);
+            Toast.makeText(ApplicationActivity.this, "No user is logged in.", Toast.LENGTH_LONG).show();
+        }
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+
+
+        btnLogout = findViewById(R.id.button3);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                firebaseAuth.signOut();
+                finish();
                 Intent i = new Intent(ApplicationActivity.this, HomeActivity.class);
                 startActivity(i);
                 Toast.makeText(ApplicationActivity.this, "You are logged out.", Toast.LENGTH_LONG).show();
@@ -33,5 +54,8 @@ public class ApplicationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    private void logOut() {
     }
 }
