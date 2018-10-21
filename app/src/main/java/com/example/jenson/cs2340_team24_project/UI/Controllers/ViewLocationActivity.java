@@ -17,12 +17,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ViewLocationActivity extends AppCompatActivity {
 
@@ -30,15 +32,15 @@ public class ViewLocationActivity extends AppCompatActivity {
 
     private ArrayList<String> mLocationNames = new ArrayList<>();
 
-
-
-
-
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_location);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
         readCSVFile();
         initRecyclerView();
 
@@ -84,10 +86,19 @@ public class ViewLocationActivity extends AppCompatActivity {
                 String phone = tokens[9];
                 String website = tokens[10];
                 Location l = new Location(name, type, longitude, latitude, address, phone, website);
+                Database.addLocation(l);
+                String encoded = encodeString(name);
+                databaseReference.child("locations").child(encoded).setValue(l);
             }
         } catch (IOException e) {
             Log.e("ViewLocationActivity", "Error reading assets.");
         }
+    }
+    public static String decodeString(String s) {
+        return s.replace(",", ".");
+    }
+    public static String encodeString(String s) {
+        return s.replace(".", ",");
     }
 
 }
