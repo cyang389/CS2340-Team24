@@ -36,7 +36,7 @@ public class SearchDonationActivity extends AppCompatActivity {
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sCategory.setAdapter(adapter1);
 
-        ArrayList<String> locations = new ArrayList<String>(Database.getLocations().keySet());
+        ArrayList<String> locations = new ArrayList<String>(Database.getLegalLocations());
         locations.add(0, "ALL LOCATIONS");
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, locations);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -40,7 +40,6 @@ public class ViewLocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_location);
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
-
         initRecyclerView();
 
         HashMap<String, Location> locations = Database.getLocations();
