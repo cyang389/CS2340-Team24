@@ -36,7 +36,7 @@ public class DetailDonationActivity extends AppCompatActivity {
         TextView comments = findViewById(R.id.donationComments);
 
         time.setText("Time: " + donation.getDonationTime());
-        location.setText("Location: " + donation.getLocation().getName());
+        location.setText("Location: " + donation.getLocation());
         shortDescription.setText("Short Description: " + donation.getShortDescription());
         fullDescription.setText("Full Description: " + donation.getFullDescription());
         value.setText("Value: " + donation.getValue());

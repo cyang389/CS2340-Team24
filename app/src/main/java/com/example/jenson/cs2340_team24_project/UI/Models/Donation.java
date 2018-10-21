@@ -4,25 +4,30 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Donation {
-    private Location location;
+    private String location;
     private String shortDescription;
     private String fullDescription;
     private double value;
     private String comments;
-    private Timestamp time;
+    private String time;
     private DonationType type = DonationType.OTHER;
 
-    public Donation(Location l, Timestamp t, double v) {
-        this.location = l;
-        this.time = t;
-        this.value = v;
+    public Donation(String location, String shortDescription, String fullDescription,
+                    Double value, String comments, DonationType type, String time) {
+        this.location = location;
+        this.shortDescription = shortDescription;
+        this.fullDescription = fullDescription;
+        this.value = value;
+        this.comments = comments;
+        this.type = type;
+        this.time = time;
     }
 
     //Setters and getters
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
-    public void setLocation(Location l) {
+    public void setLocation(String l) {
         this.location = l;
     }
     public String getShortDescription() {
@@ -49,10 +54,10 @@ public class Donation {
     public void setComments(String s) {
         this.comments = s;
     }
-    public Timestamp getDonationTime() {
+    public String getDonationTime() {
         return time;
     }
-    public void setDonationTime(Timestamp t) {
+    public void setDonationTime(String t) {
         this.time = t;
     }
     public void setType(DonationType type) {
