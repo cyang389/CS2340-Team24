@@ -30,7 +30,6 @@ public class ApplicationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_application);
-        readCSVFile();
 
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null) {
@@ -75,32 +74,5 @@ public class ApplicationActivity extends AppCompatActivity {
     }
 
     private void logOut() {
-    }
-
-    private void readCSVFile() {
-        try {
-            InputStream is = getResources().openRawResource(R.raw.locationdata);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-            String line;
-            br.readLine();
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(",");
-                int id = Integer.parseInt(tokens[0]);
-                String name = tokens[1];
-                double latitude = Double.parseDouble(tokens[2]);
-                double longitude = Double.parseDouble(tokens[3]);
-                String address = tokens[4];
-                String city = tokens[5];
-                String state = tokens[6];
-                int zip = Integer.parseInt(tokens[7]);
-                String type = tokens[8];
-                String phone = tokens[9];
-                String website = tokens[10];
-                Location l = new Location(name, type, longitude, latitude, address, phone, website);
-                Database.addLocation(l);
-            }
-        } catch (IOException e) {
-            Log.e("ViewLocationActivity", "Error reading assets.");
-        }
     }
 }
