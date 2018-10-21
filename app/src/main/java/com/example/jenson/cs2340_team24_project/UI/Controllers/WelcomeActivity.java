@@ -11,32 +11,38 @@ import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import java.io.IOException;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
+
 public class WelcomeActivity extends AppCompatActivity {
     private static int Timeout = 3500;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
         readCSVFile();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent homeIntent = new Intent(WelcomeActivity.this, HomeActivity.class);
                 startActivity(homeIntent);
+
                 finish();
             }
         },Timeout);
     }
 
     private void readCSVFile() {
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         try {
             InputStream is = getResources().openRawResource(R.raw.locationdata);
             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
@@ -57,9 +63,17 @@ public class WelcomeActivity extends AppCompatActivity {
                 String website = tokens[10];
                 Location l = new Location(name, type, longitude, latitude, address, phone, website);
                 Database.addLocation(l);
+
+                String encoded = stringEncoder(name);
+                databaseReference.child("locations").child(encoded).setValue(l);
             }
         } catch (IOException e) {
             Log.e("ViewLocationActivity", "Error reading assets.");
         }
+    }
+
+    public static String stringEncoder(String s) {
+        s = s.replace('.', ',');
+        return s;
     }
 }
