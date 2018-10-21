@@ -36,6 +36,7 @@ public class Database {
 
     public static HashMap<String, Location> getLocations() { return locations; }
 
+
     public static Location getLocation(String name) { return locations.get(name); }
 
     public static List<DonationType> getLegalTypes() {
@@ -50,8 +51,12 @@ public class Database {
         donations.put(donation.getShortDescription(), donation);
     }
 
+    public static List<String> getLegalLocations() {
+        return legalLocations;
+    }
 
     public static int findLocation(String code) {
+        legalLocations = new ArrayList<String>(locations.keySet());
         int i = 0;
         while (i < legalLocations.size()) {
             if (code.equals(legalLocations.get(i))) return i;

@@ -54,7 +54,7 @@ public class AddDonationActivity extends AppCompatActivity {
         getIncomingIntent();
 
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
-                new ArrayList<String>(Database.getLocations().keySet()));
+                Database.getLegalLocations());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sLocation.setAdapter(adapter);
         sLocation.setSelection(Database.findLocation(location.getName()));
