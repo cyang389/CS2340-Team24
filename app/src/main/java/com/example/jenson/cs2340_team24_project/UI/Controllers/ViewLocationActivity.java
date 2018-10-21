@@ -84,7 +84,6 @@ public class ViewLocationActivity extends AppCompatActivity {
                 String phone = tokens[9];
                 String website = tokens[10];
                 Location l = new Location(name, type, longitude, latitude, address, phone, website);
-                Database.addLocation(l);
             }
         } catch (IOException e) {
             Log.e("ViewLocationActivity", "Error reading assets.");
