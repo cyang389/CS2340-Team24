@@ -17,6 +17,7 @@ import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
@@ -57,7 +58,7 @@ public class AddDonationActivity extends AppCompatActivity {
 
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
-                new ArrayList<DonationType>(Database.getLegalTypes()));
+                Arrays.asList(DonationType.values()));
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sCategory.setAdapter(adapter1);
 

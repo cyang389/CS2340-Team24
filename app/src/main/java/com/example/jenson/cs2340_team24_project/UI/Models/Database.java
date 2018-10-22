@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Database {
-    private static List<DonationType> legalTypes = Arrays.asList(DonationType.values());
     private static List<String> legalLocations = new ArrayList<>();
 
     public Database() {
@@ -16,8 +15,5 @@ public class Database {
     }
     public static List<String> getLegalLocations() {
         return legalLocations;
-    }
-    public static List<DonationType> getLegalTypes() {
-        return legalTypes;
     }
 }
