@@ -6,23 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UI.Controllers.SearchDonationResultActivity">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view2"
         android:layout_width="match_parent"
-        android:layout_height="574dp"
-        app:layout_constraintBottom_toTopOf="@+id/addDonationButton"
+        android:layout_height="408dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/resultSearchDonationBack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        ></android.support.v7.widget.RecyclerView>
+        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.RecyclerView>
 
     <Button
         android:id="@+id/resultSearchDonationBack"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="28dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
