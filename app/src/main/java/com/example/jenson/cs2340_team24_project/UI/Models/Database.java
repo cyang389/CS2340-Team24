@@ -11,6 +11,9 @@ public class Database {
 
     public Database() {
     }
+    public static void addLocation(Location l) {
+        legalLocations.add(l.getName());
+    }
     public static List<String> getLegalLocations() {
         return legalLocations;
     }
