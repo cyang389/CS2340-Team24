@@ -14,6 +14,7 @@ import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SearchDonationActivity extends AppCompatActivity {
     private String name;
@@ -31,8 +32,7 @@ public class SearchDonationActivity extends AppCompatActivity {
         sCategory = (Spinner) findViewById(R.id.searchDonationCategorySpinner);
         sLocation = (Spinner) findViewById(R.id.searchDonationLocationSpinner);
 
-        ArrayList<DonationType> types = new ArrayList<DonationType> (Database.getLegalTypes());
-        ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, types);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Arrays.asList(DonationType.values()));
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sCategory.setAdapter(adapter1);
 
