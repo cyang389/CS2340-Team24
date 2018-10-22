@@ -73,14 +73,6 @@ public class DetailLocationActivity extends AppCompatActivity {
         };
         databaseLocations.addValueEventListener(locationListener);
     }
-    /*
-    private void getIncomingIntent() {
-        if(getIntent().hasExtra("location_name")) {
-            String name = getIntent().getStringExtra("location_name");
-            //location = Database.getLocations().get(name);
-        }
-    }
-    */
 
     private void setInfo(Location location) {
         TextView name = findViewById(R.id.name);

@@ -23,6 +23,8 @@ public class Donation {
         this.time = time;
     }
 
+    public Donation() {}
+
     //Setters and getters
     public String getLocation() {
         return location;
