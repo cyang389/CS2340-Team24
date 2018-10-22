@@ -1,6 +1,7 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,9 +11,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
-import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -20,28 +26,21 @@ public class ViewDonationActivity extends AppCompatActivity {
 
     private Location location;
     private ArrayList<String> donations = new ArrayList<>();
+    private DatabaseReference databaseDonations;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_donation);
-        getIncomingIntent();
-        ArrayList<Donation> donationArrayList = location.getDonations();
-        if (donationArrayList.size() != 0) {
-            for (int i = 0; i < donationArrayList.size(); i++) {
-                String name = donationArrayList.get(i).getShortDescription();
-                donations.add(name);
-            }
-        }
-        if (donations.size() != 0) {
-            initRecyclerView();
-        }
+        databaseDonations = FirebaseDatabase.getInstance().getReference("donations");
 
         Button addDonation = findViewById(R.id.addDonationButton);
         addDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ViewDonationActivity.this, AddDonationActivity.class);
-                i.putExtra("location_name", location.getName());
+                String name = getIntent().getStringExtra("location_name");
+                i.putExtra("location_name", name);
                 startActivity(i);
             }
         });
@@ -51,19 +50,37 @@ public class ViewDonationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(ViewDonationActivity.this, DetailLocationActivity.class);
-                i.putExtra("location_name", location.getName());
+                String name = getIntent().getStringExtra("location_name");
+                i.putExtra("location_name", name);
                 startActivity(i);
             }
         });
     }
 
-    private void getIncomingIntent() {
-        if (getIntent().hasExtra("location_name")) {
-            String name = getIntent().getStringExtra("location_name");
-            location = Database.getLocations().get(name);
-        }
-    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ValueEventListener donationListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                donations.clear();
+                String name = getIntent().getStringExtra("location_name");
+                for (DataSnapshot donationSnapshot : dataSnapshot.getChildren()) {
+                    Donation d = donationSnapshot.getValue(Donation.class);
+                    if (d.getLocation().equals(name)) {
+                        donations.add(d.getShortDescription());
+                    }
+                }
+                initRecyclerView();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        databaseDonations.addValueEventListener(donationListener);
+    }
 
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view1);
