@@ -1,6 +1,7 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,31 +19,35 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ViewLocationActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewLocationActivity";
 
-    private ArrayList<String> mLocationNames = (ArrayList<String>) Database.getLegalLocations();
+    private ArrayList<String> mLocationNames;// = (ArrayList<String>) Database.getLegalLocations();
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference databaseLocations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_location);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        initRecyclerView();
+        mLocationNames = new ArrayList<>();
 
-        HashMap<String, Location> locations = Database.getLocations();
+        databaseLocations = FirebaseDatabase.getInstance().getReference("locations");
+
         Button back = findViewById(R.id.viewLocationBack);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +57,28 @@ public class ViewLocationActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ValueEventListener locationListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                mLocationNames.clear();
+                for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
+                    Location l = locationSnapshot.getValue(Location.class);
+                    mLocationNames.add(l.getName());
+                }
+                initRecyclerView();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        databaseLocations.addValueEventListener(locationListener);
     }
 
 

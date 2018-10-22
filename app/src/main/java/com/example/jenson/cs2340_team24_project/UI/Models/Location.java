@@ -21,6 +21,9 @@ public class Location {
         this.phone = phone;
         this.website = website;
     }
+    public Location() {
+
+    }
     public String getName() {
         return name;
     }
