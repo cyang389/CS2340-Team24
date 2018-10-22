@@ -6,23 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-import com.example.jenson.cs2340_team24_project.R;
-import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import com.google.firebase.database.DataSnapshot;
@@ -35,7 +25,7 @@ public class ViewLocationActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewLocationActivity";
 
-    private ArrayList<String> mLocationNames;// = (ArrayList<String>) Database.getLegalLocations();
+    private ArrayList<String> mLocationNames;
 
     private DatabaseReference databaseLocations;
 
@@ -56,7 +46,6 @@ public class ViewLocationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 
     @Override
@@ -87,13 +76,6 @@ public class ViewLocationActivity extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mLocationNames);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    }
-
-    public static String decodeString(String s) {
-        return s.replace(",", ".");
-    }
-    public static String encodeString(String s) {
-        return s.replace(".", ",");
     }
 
 }
