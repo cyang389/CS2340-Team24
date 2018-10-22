@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.jenson.cs2340_team24_project.R;
-import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
 
 import com.google.firebase.database.DataSnapshot;

@@ -13,7 +13,6 @@ import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
 import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
-import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
@@ -23,7 +22,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
 public class AddDonationActivity extends AppCompatActivity {
-    private Location location;
     private EditText mShortDescription;
     private EditText mFullDescription;
     private EditText mValue;
@@ -43,7 +41,6 @@ public class AddDonationActivity extends AppCompatActivity {
         mComment = findViewById(R.id.commentEditText);
         sLocation = findViewById(R.id.locationSpinner);
         sCategory = findViewById(R.id.categorySpinner);
-        getIncomingIntent();
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -51,7 +48,13 @@ public class AddDonationActivity extends AppCompatActivity {
                 Database.getLegalLocations());
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sLocation.setAdapter(adapter);
-        sLocation.setSelection(Database.findLocation(location.getName()));
+
+        String name = getIntent().getStringExtra("location_name");
+
+        ArrayAdapter myAdap = (ArrayAdapter) sLocation.getAdapter();
+        int position = myAdap.getPosition(name);
+        sLocation.setSelection(position);
+
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
                 new ArrayList<DonationType>(Database.getLegalTypes()));
@@ -74,15 +77,12 @@ public class AddDonationActivity extends AppCompatActivity {
                 DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();
                 String timenow = dtf.format(now);
-
                 Donation d = new Donation(loc, sd, fd, value, com, type, timenow);
-                location.addDonation(d);
-                Database.addDonation(d);
 
                 databaseReference.child("donations").child(sd).setValue(d);
 
                 Intent i = new Intent(AddDonationActivity.this, ViewDonationActivity.class);
-                i.putExtra("location_name", location.getName());
+                i.putExtra("location_name", loc);
                 startActivity(i);
             }
         });
@@ -90,17 +90,11 @@ public class AddDonationActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String loc = sLocation.getSelectedItem().toString();
                 Intent i = new Intent(AddDonationActivity.this, ViewDonationActivity.class);
-                i.putExtra("location_name", location.getName());
+                i.putExtra("location_name", loc);
                 startActivity(i);
             }
         });
-    }
-
-    private void getIncomingIntent() {
-        if (getIntent().hasExtra("location_name")) {
-            String name = getIntent().getStringExtra("location_name");
-            location = Database.getLocations().get(name);
-        }
     }
 }
