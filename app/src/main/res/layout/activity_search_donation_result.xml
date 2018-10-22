@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".UI.Controllers.SearchDonationResultActivity">
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view1"
+        android:id="@+id/recycler_view2"
         android:layout_width="match_parent"
         android:layout_height="574dp"
         app:layout_constraintBottom_toTopOf="@+id/addDonationButton"

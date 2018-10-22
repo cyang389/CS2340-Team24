@@ -1,10 +1,14 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.Models.Database;
@@ -21,6 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import me.xdrop.fuzzywuzzy.FuzzySearch;
+import me.xdrop.fuzzywuzzy.model.ExtractedResult;
+
 public class SearchDonationResultActivity extends AppCompatActivity {
     private String name;
     private String location;
@@ -35,50 +42,56 @@ public class SearchDonationResultActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_donation_result);
         databaseLocations = FirebaseDatabase.getInstance().getReference("donations");
-        getIncomingIntent();
+
+        Button back = (Button) findViewById(R.id.resultSearchDonationBack);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(SearchDonationResultActivity.this, SearchDonationActivity.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 
-    private void getIncomingIntent() {
+    @Override
+    protected void onStart() {
+        super.onStart();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             name = (String) extras.get("name");
             location = (String) extras.get("location");
             category = (DonationType) extras.get("category");
         }
-    }
-
-    /**
-    @Override
-    protected void onStart() {
-        super.onStart();
         ValueEventListener donationListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 donations.clear();
                 for (DataSnapshot donationSnapshot : dataSnapshot.getChildren()) {
                     Donation d = donationSnapshot.getValue(Donation.class);
-                    if (location.equals("ALL LOCATION")) {
-                        if (category == DonationType.NOTYPE) {
+                    if (location.equals("ALL LOCATIONS")) {
+                        if (category.equals(DonationType.NOTYPE) || d.getType().equals(category)) {
                             donations.add(d.getShortDescription());
-                        } else {
-                            if (d.getType().equals(category)) {
-                                donations.add(d.getShortDescription());
-                            }
                         }
                     } else {
                         if (d.getLocation().equals(location)) {
-                            if (category == DonationType.NOTYPE) {
+                            if (category.equals(DonationType.NOTYPE) || d.getType().equals(category)) {
                                 donations.add(d.getShortDescription());
-                            } else {
-                                if (d.getType().equals(category)) {
-                                    donations.add(d.getShortDescription());
-                                }
                             }
                         }
                     }
                 }
-                //initRecyclerView();
+                if (!TextUtils.isEmpty(name)) {
+                    List<ExtractedResult> list = FuzzySearch.extractSorted(name, donations);
+                    donations.clear();
+                    for (ExtractedResult r : list) {
+                        if (r.getScore() >= 60) {
+                            donations.add(r.getString());
+                        }
+                    }
+                }
+                initRecyclerView();
             }
 
             @Override
@@ -88,11 +101,11 @@ public class SearchDonationResultActivity extends AppCompatActivity {
         };
         databaseLocations.addValueEventListener(donationListener);
     }
-    */
+
 
     private void initRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, donations);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view2);
+        SearchDonationAdapter adapter = new SearchDonationAdapter(this, donations);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
