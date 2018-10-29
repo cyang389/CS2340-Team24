@@ -1,8 +1,12 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.app.Application;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.jenson.cs2340_team24_project.R;
@@ -21,6 +25,15 @@ public class ViewMapActivity extends AppCompatActivity {
         if (googleServicesAvailable()) {
             Toast.makeText(this, "Perfect!!", Toast.LENGTH_LONG).show();
         }
+
+        Button back = (Button) findViewById(R.id.mapBackButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ViewMapActivity.this, ApplicationActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public boolean googleServicesAvailable() {
