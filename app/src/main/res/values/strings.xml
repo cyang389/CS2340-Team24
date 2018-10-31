@@ -18,4 +18,5 @@
     <string name="prompt_logout">LOG OUT</string>
     <!-- String related to view location data -->
     <string name="prompt_viewdata">VIEW DATA</string>
+    <string name = "google_map_API_key" >AIzaSyATtqFt-5DkkMJXnMZQyzwnlWCAto1dAKc</string>
 </resources>
