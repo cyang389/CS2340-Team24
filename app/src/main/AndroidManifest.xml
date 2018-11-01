@@ -44,7 +44,9 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyATtqFt5DkkMJXnMZQyzwnlWCAto1dAKc "/>
+            android:value="AIzaSyCfH31tSvP5c2p88GguEzXpp0BuemT6hRM"/>
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
 
         <activity
             android:name=".UI.Controllers.HomeActivity"
@@ -76,10 +78,11 @@
         <activity
             android:name=".UI.Controllers.SearchDonationActivity"
             android:label="Search Donations" />
+        <activity android:name=".UI.Controllers.MapsActivity"
+            android:label="Map"/>
         <activity
             android:name=".UI.Controllers.SearchDonationResultActivity"
             android:label="Result" />
-        <activity android:name=".UI.Controllers.ViewMapActivity"></activity>
     </application>
 
 </manifest>

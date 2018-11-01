@@ -76,7 +76,7 @@ public class ApplicationActivity extends AppCompatActivity {
         btnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ApplicationActivity.this, ViewMapActivity.class);
+                Intent i = new Intent(ApplicationActivity.this, MapsActivity.class);
                 startActivity(i);
             }
         });
