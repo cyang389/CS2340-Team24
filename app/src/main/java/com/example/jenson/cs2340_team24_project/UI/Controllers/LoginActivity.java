@@ -22,12 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity {
-    private static final String TAG = "LoginActivity";
-    private static final String REQUIRED = "Required";
     private EditText mPasswordField;
     private EditText mEmailField;
-    private Button btnLogin;
-    private Button btnCancel;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
 
@@ -35,6 +31,9 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        Button btnLogin;
+        Button btnCancel;
 
         mEmailField = findViewById(R.id.email);
         mPasswordField = findViewById(R.id.password);
@@ -59,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                attemptLogin();;
+                attemptLogin();
             }
         });
     }

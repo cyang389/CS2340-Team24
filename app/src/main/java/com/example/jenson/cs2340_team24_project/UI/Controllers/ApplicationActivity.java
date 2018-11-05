@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class ApplicationActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
-    private Button btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +31,7 @@ public class ApplicationActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
 
-
+        Button btnLogout;
         btnLogout = findViewById(R.id.button3);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,9 +70,5 @@ public class ApplicationActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-    }
-
-    private void logOut() {
     }
 }

@@ -25,13 +25,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterActivity extends AppCompatActivity {
-    private static final String TAG = "RegisterActivity";
 
     private EditText mPasswordField;
     private EditText mEmailField;
     private EditText mUsernameField;
-    private Button btnRegister;
-    private Button btnCancel;
     private Spinner responsibilitySpinner;
 
     private ProgressDialog progressDialog;
@@ -43,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Button btnRegister;
+        Button btnCancel;
 
         mEmailField = findViewById(R.id.emailReg);
         mUsernameField = findViewById(R.id.usernameReg);

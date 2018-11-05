@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
-import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 
 public class ViewDonationActivity extends AppCompatActivity {
 
-    private Location location;
     private ArrayList<String> donations = new ArrayList<>();
     private DatabaseReference databaseDonations;
 

@@ -16,24 +16,23 @@ import com.example.jenson.cs2340_team24_project.R;
 import java.util.ArrayList;
 
 public class SearchDonationAdapter extends RecyclerView.Adapter<SearchDonationAdapter.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapter";
-    private ArrayList<String> mLocationnames = new ArrayList<>();
-    private Context mContext;
+    private ArrayList<String> mLocationNames;
+    private final Context mContext;
 
-    public SearchDonationAdapter(Context context, ArrayList<String> mLocationnames) {
-        this.mLocationnames = mLocationnames;
+    public SearchDonationAdapter(Context context, ArrayList<String> mLocationNames) {
+        this.mLocationNames = mLocationNames;
         this.mContext = context;
     }
     @Override
     public void onBindViewHolder(@NonNull SearchDonationAdapter.ViewHolder holder, final int position) {
-        holder.locationname.setText(mLocationnames.get(position));
+        holder.locationName.setText(mLocationNames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, mLocationnames.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, mLocationNames.get(position), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(mContext, DetailDonationActivity.class);
-                intent.putExtra("donation_name", mLocationnames.get(position));
+                intent.putExtra("donation_name", mLocationNames.get(position));
                 mContext.startActivity(intent);
             }
         });
@@ -48,16 +47,16 @@ public class SearchDonationAdapter extends RecyclerView.Adapter<SearchDonationAd
 
     @Override
     public int getItemCount() {
-        return mLocationnames.size();
+        return mLocationNames.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView locationname;
-        RelativeLayout parentLayout;
-        public ViewHolder(View itemView) {
+        final TextView locationName;
+        final RelativeLayout parentLayout;
+        ViewHolder(View itemView) {
             super(itemView);
-            locationname = itemView.findViewById(R.id.locationname);
+            locationName = itemView.findViewById(R.id.locationname);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }

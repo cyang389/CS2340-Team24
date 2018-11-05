@@ -17,8 +17,6 @@ import java.util.ArrayList;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
-
-    private static final String TAG = "RecyclerViewAdapter";
     private ArrayList<String> mLocationnames;
     private Context mContext;
 
@@ -58,7 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         TextView locationname;
         RelativeLayout parentLayout;
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
             locationname = itemView.findViewById(R.id.locationname);
             parentLayout = itemView.findViewById(R.id.parent_layout);

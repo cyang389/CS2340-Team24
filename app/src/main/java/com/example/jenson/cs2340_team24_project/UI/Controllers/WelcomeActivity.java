@@ -20,11 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
 public class WelcomeActivity extends AppCompatActivity {
-    private static int Timeout = 3500;
-    private DatabaseReference databaseReference;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        int Timeout = 3500;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
@@ -42,6 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void readCSVFile() {
+        DatabaseReference databaseReference;
         databaseReference = FirebaseDatabase.getInstance().getReference();
         try {
             InputStream is = getResources().openRawResource(R.raw.locationdata);
@@ -72,7 +71,7 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
-    public static String stringEncoder(String s) {
+    private static String stringEncoder(String s) {
         s = s.replace('.', ',');
         return s;
     }

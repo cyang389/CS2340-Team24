@@ -16,8 +16,7 @@ import com.example.jenson.cs2340_team24_project.R;
 import java.util.ArrayList;
 
 public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHolder> {
-    private static final String TAG = "RecyclerViewAdapter";
-    private ArrayList<String> mLocationnames = new ArrayList<>();
+    private ArrayList<String> mLocationnames;
     private Context mContext;
 
     public DonationAdpater(Context context, ArrayList<String> mLocationnames) {
@@ -26,7 +25,7 @@ public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHo
     }
     @Override
     public void onBindViewHolder(@NonNull DonationAdpater.ViewHolder holder, final int position) {
-        holder.locationname.setText(mLocationnames.get(position));
+        holder.locationName.setText(mLocationnames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,11 +52,11 @@ public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView locationname;
+        TextView locationName;
         RelativeLayout parentLayout;
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
-            locationname = itemView.findViewById(R.id.locationname);
+            locationName = itemView.findViewById(R.id.locationname);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
