@@ -10,6 +10,7 @@
         android:layout_width="100dp"
         android:id="@+id/imageView"
         android:src="@mipmap/ic_launcher"
+        android:contentDescription="@null"
         />
     <LinearLayout
         android:layout_width="wrap_content"

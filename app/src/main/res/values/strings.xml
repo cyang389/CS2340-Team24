@@ -19,4 +19,15 @@
     <!-- String related to view location data -->
     <string name="prompt_viewdata">VIEW DATA</string>
     <string name = "google_map_API_key" >AIzaSyCfH31tSvP5c2p88GguEzXpp0BuemT6hRM</string>
+
+    <!-- Strings related to add donation -->
+    <string name = "timestamp" >Time Stamp</string>
+    <string name="label1" >Time Stamp</string>
+    <string name="shortDescriptionHint">Short Description</string>
+    <string name="fullDescriptionHint">Full Description</string>
+    <string name="valueHint">Value</string>
+    <string name="commentHint">Comment</string>
+
+    <!-- Strings related to searchDonation -->
+    <string name="searchDonationHint">Name</string>
 </resources>

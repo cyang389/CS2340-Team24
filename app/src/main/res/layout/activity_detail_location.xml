@@ -17,6 +17,7 @@
         android:id="@+id/image"
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
+        android:contentDescription="@null"
         />
 
     <TextView

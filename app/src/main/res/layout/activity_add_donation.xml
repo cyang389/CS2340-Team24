@@ -24,8 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_weight="1"
-                android:text="Time Stamp" />
+                android:layout_weight="1" />
 
             <EditText
                 android:id="@+id/timeStampEditText"
@@ -33,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/label1"
                 android:inputType="date" />
 
             <TextView
@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/shortDescriptionHint"
                 android:inputType="text" />
 
             <TextView
@@ -80,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/fullDescriptionHint"
                 android:inputType="text" />
 
             <TextView
@@ -96,6 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="@string/valueHint"
                 android:inputType="number" />
 
             <TextView
@@ -128,6 +131,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="text"
+                android:hint="@string/commentHint"
                 android:text="" />
 
             <Button
