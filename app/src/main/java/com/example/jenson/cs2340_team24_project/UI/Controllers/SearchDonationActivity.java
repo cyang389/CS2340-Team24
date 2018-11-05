@@ -28,21 +28,21 @@ public class SearchDonationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_donation);
-        eName = (EditText) findViewById(R.id.searchDonationNameEdit);
-        sCategory = (Spinner) findViewById(R.id.searchDonationCategorySpinner);
-        sLocation = (Spinner) findViewById(R.id.searchDonationLocationSpinner);
+        eName = findViewById(R.id.searchDonationNameEdit);
+        sCategory = findViewById(R.id.searchDonationCategorySpinner);
+        sLocation = findViewById(R.id.searchDonationLocationSpinner);
 
         ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item, Arrays.asList(DonationType.values()));
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sCategory.setAdapter(adapter1);
 
-        ArrayList<String> locations = new ArrayList<String>(Database.getLegalLocations());
+        ArrayList<String> locations = new ArrayList<>(Database.getLegalLocations());
         locations.add(0, "ALL LOCATIONS");
         ArrayAdapter<String> adapter = new ArrayAdapter(this,android.R.layout.simple_spinner_item, locations);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sLocation.setAdapter(adapter);
 
-        Button search = (Button) findViewById(R.id.searchDonationSearchButton);
+        Button search = findViewById(R.id.searchDonationSearchButton);
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +57,7 @@ public class SearchDonationActivity extends AppCompatActivity {
             }
         });
 
-        Button cancel = (Button) findViewById(R.id.searchDonationCancelButton);
+        Button cancel = findViewById(R.id.searchDonationCancelButton);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,7 +1,4 @@
 package com.example.jenson.cs2340_team24_project.UI.Models;
-import java.sql.Timestamp;
-import java.util.Arrays;
-import java.util.List;
 
 public class Donation {
     private String location;

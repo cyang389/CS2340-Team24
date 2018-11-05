@@ -10,7 +10,4 @@ public enum Responsibility {
     Responsibility(String r) {
         this.responsibility = r;
     }
-    public String getResponsibility() {
-        return responsibility;
-    }
 }

@@ -1,8 +1,6 @@
 package com.example.jenson.cs2340_team24_project.UI.Models;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class Database {

@@ -14,7 +14,6 @@ import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
 import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
 
-import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDateTime;
 import java.util.Arrays;

@@ -88,8 +88,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 @Override
                 public View getInfoContents(Marker marker) {
                     View v = getLayoutInflater().inflate(R.layout.info_window, null);
-                    TextView tvName = (TextView) v.findViewById(R.id.nameView1);
-                    TextView tvTel = (TextView) v.findViewById(R.id.telView1);
+                    TextView tvName = v.findViewById(R.id.nameView1);
+                    TextView tvTel = v.findViewById(R.id.telView1);
 
                     String name = marker.getTitle();
                     for (Location l : mLocations) {

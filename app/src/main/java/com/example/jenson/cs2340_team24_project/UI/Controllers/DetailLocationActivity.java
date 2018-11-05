@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.jenson.cs2340_team24_project.R;
-import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import com.google.firebase.database.DataSnapshot;
@@ -77,7 +76,7 @@ public class DetailLocationActivity extends AppCompatActivity {
     private void setInfo(Location location) {
         TextView name = findViewById(R.id.name);
         TextView type = findViewById(R.id.type);
-        TextView longitude = findViewById(R.id.longtitude);
+        TextView longitude = findViewById(R.id.longitude);
         TextView latitude = findViewById(R.id.latitude);
         TextView address = findViewById(R.id.address);
         TextView phone = findViewById(R.id.phone);

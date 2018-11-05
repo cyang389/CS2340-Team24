@@ -3,23 +3,14 @@ package com.example.jenson.cs2340_team24_project.UI.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.jenson.cs2340_team24_project.R;
 
-import com.example.jenson.cs2340_team24_project.UI.Models.Database;
-import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 public class ApplicationActivity extends AppCompatActivity {
 
@@ -54,7 +45,7 @@ public class ApplicationActivity extends AppCompatActivity {
             }
         });
 
-        Button viewLocationButton = (Button) findViewById(R.id.button4);
+        Button viewLocationButton = findViewById(R.id.button4);
         viewLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,7 +54,7 @@ public class ApplicationActivity extends AppCompatActivity {
             }
         });
 
-        Button searchDonation = (Button) findViewById(R.id.applicationSearchDonation);
+        Button searchDonation = findViewById(R.id.applicationSearchDonation);
         searchDonation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

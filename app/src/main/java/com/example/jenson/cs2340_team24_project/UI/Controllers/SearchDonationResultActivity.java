@@ -11,10 +11,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
-import com.example.jenson.cs2340_team24_project.UI.Models.Database;
 import com.example.jenson.cs2340_team24_project.UI.Models.Donation;
 import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
-import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +41,7 @@ public class SearchDonationResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_donation_result);
         databaseLocations = FirebaseDatabase.getInstance().getReference("donations");
 
-        Button back = (Button) findViewById(R.id.resultSearchDonationBack);
+        Button back = findViewById(R.id.resultSearchDonationBack);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +83,7 @@ public class SearchDonationResultActivity extends AppCompatActivity {
                 if (!TextUtils.isEmpty(name)) {
                     List<ExtractedResult> list = FuzzySearch.extractSorted(name, donations);
                     donations.clear();
+                    //Toast.makeText(SearchDonationResultActivity.this, "No match.", Toast.LENGTH_LONG).show();
                     for (ExtractedResult r : list) {
                         if (r.getScore() >= 60) {
                             donations.add(r.getString());
