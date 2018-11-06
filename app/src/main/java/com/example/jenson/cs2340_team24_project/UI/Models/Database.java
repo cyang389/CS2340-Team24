@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    private static List<String> legalLocations = new ArrayList<>();
+    private static final List<String> legalLocations = new ArrayList<>();
 
     public Database() {
     }

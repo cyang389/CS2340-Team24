@@ -21,6 +21,7 @@ import java.util.Arrays;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
+@SuppressWarnings("ALL")
 public class AddDonationActivity extends AppCompatActivity {
     private EditText mShortDescription;
     private EditText mFullDescription;
@@ -56,6 +57,7 @@ public class AddDonationActivity extends AppCompatActivity {
         sLocation.setSelection(position);
 
 
+        //noinspection unchecked
         ArrayAdapter<String> adapter1 = new ArrayAdapter(this,android.R.layout.simple_spinner_item,
                 Arrays.asList(DonationType.values()));
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

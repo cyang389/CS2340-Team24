@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+@SuppressWarnings("ALL")
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText mPasswordField;
@@ -75,6 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         //setting up spinner
+        //noinspection unchecked
         ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, User.legalResponsibilities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         responsibilitySpinner.setAdapter(adapter);

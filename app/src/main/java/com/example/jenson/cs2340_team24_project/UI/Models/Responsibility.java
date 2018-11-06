@@ -6,7 +6,7 @@ public enum Responsibility {
     ADMIN("admin"),
     MANAGER("manager");
 
-    String responsibility;
+    final String responsibility;
     Responsibility(String r) {
         this.responsibility = r;
     }

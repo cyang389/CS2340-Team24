@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 /**
  * A login screen that offers login via email/password.
  */
+@SuppressWarnings("ALL")
 public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordField;
     private EditText mEmailField;

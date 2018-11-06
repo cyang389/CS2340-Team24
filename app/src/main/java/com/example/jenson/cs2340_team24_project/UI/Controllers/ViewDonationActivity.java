@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 public class ViewDonationActivity extends AppCompatActivity {
 
-    private ArrayList<String> donations = new ArrayList<>();
+    private final ArrayList<String> donations = new ArrayList<>();
     private DatabaseReference databaseDonations;
 
     @Override

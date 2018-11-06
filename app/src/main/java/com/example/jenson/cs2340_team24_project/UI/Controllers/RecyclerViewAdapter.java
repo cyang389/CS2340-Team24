@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
-    private ArrayList<String> mLocationnames;
-    private Context mContext;
+    private final ArrayList<String> mLocationnames;
+    private final Context mContext;
 
     public RecyclerViewAdapter(Context context, ArrayList<String> mLocationnames) {
         this.mLocationnames = mLocationnames;
@@ -29,7 +29,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
-        ViewHolder holder = new ViewHolder(view);
+        @SuppressWarnings("UnnecessaryLocalVariable") ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
@@ -55,8 +55,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView locationname;
-        RelativeLayout parentLayout;
+        final TextView locationname;
+        final RelativeLayout parentLayout;
         ViewHolder(View itemView) {
             super(itemView);
             locationname = itemView.findViewById(R.id.locationname);

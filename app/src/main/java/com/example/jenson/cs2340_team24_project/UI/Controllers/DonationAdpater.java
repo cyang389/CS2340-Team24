@@ -17,8 +17,8 @@ import com.example.jenson.cs2340_team24_project.R;
 import java.util.ArrayList;
 
 public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHolder> {
-    private ArrayList<String> mLocationnames;
-    private Context mContext;
+    private final ArrayList<String> mLocationnames;
+    private final Context mContext;
 
     public DonationAdpater(Context context, ArrayList<String> mLocationnames) {
         this.mLocationnames = mLocationnames;
@@ -42,6 +42,7 @@ public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHo
     @Override
     public DonationAdpater.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
+        //noinspection UnnecessaryLocalVariable
         DonationAdpater.ViewHolder holder = new DonationAdpater.ViewHolder(view);
         return holder;
     }
@@ -53,8 +54,8 @@ public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView locationName;
-        RelativeLayout parentLayout;
+        final TextView locationName;
+        final RelativeLayout parentLayout;
         ViewHolder(View itemView) {
             super(itemView);
             locationName = itemView.findViewById(R.id.locationname);

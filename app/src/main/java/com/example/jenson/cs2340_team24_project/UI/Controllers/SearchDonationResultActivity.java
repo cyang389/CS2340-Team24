@@ -30,7 +30,7 @@ public class SearchDonationResultActivity extends AppCompatActivity {
     private String name;
     private String location;
     private DonationType category;
-    private ArrayList<String> donations = new ArrayList<>();
+    private final ArrayList<String> donations = new ArrayList<>();
 
     private DatabaseReference databaseLocations;
 

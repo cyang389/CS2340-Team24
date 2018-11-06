@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class User {
-    public static List<Responsibility> legalResponsibilities = Arrays.asList(Responsibility.values());
+    public static final List<Responsibility> legalResponsibilities = Arrays.asList(Responsibility.values());
 
-    protected String _email;
+    private String _email;
     protected String _username;
     protected Responsibility _res;
     protected boolean acctState;

@@ -10,7 +10,7 @@ public class Location {
     private String address;
     private String phone;
     private String website;
-    private ArrayList<Donation> donations = new ArrayList<>();
+    private final ArrayList<Donation> donations = new ArrayList<>();
     public Location(String name, String type, double lontitude,
                     double latitude, String address, String phone, String website) {
         this.name = name;

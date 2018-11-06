@@ -17,7 +17,7 @@ import com.example.jenson.cs2340_team24_project.R;
 import java.util.ArrayList;
 
 public class SearchDonationAdapter extends RecyclerView.Adapter<SearchDonationAdapter.ViewHolder> {
-    private ArrayList<String> mLocationNames;
+    private final ArrayList<String> mLocationNames;
     private final Context mContext;
 
     public SearchDonationAdapter(Context context, ArrayList<String> mLocationNames) {
@@ -39,6 +39,7 @@ public class SearchDonationAdapter extends RecyclerView.Adapter<SearchDonationAd
         });
     }
 
+    @SuppressWarnings("UnnecessaryLocalVariable")
     @Override
     public SearchDonationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
