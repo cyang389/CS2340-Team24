@@ -16,40 +16,40 @@ import com.example.jenson.cs2340_team24_project.R;
 
 import java.util.ArrayList;
 
-public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHolder> {
-    private final ArrayList<String> mLocationnames;
+public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHolder> {
+    private final ArrayList<String> mLocationNames;
     private final Context mContext;
 
-    public DonationAdpater(Context context, ArrayList<String> mLocationnames) {
-        this.mLocationnames = mLocationnames;
+    public DonationAdapter(Context context, ArrayList<String> mLocationNames) {
+        this.mLocationNames = mLocationNames;
         this.mContext = context;
     }
     @Override
-    public void onBindViewHolder(@NonNull DonationAdpater.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        holder.locationName.setText(mLocationnames.get(position));
+    public void onBindViewHolder(@NonNull DonationAdapter.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
+        holder.locationName.setText(mLocationNames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, mLocationnames.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, mLocationNames.get(position), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(mContext, DetailDonationActivity.class);
-                intent.putExtra("donation_name", mLocationnames.get(position));
+                intent.putExtra("donation_name", mLocationNames.get(position));
                 mContext.startActivity(intent);
             }
         });
     }
 
     @Override
-    public DonationAdpater.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DonationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);
         //noinspection UnnecessaryLocalVariable
-        DonationAdpater.ViewHolder holder = new DonationAdpater.ViewHolder(view);
+        DonationAdapter.ViewHolder holder = new DonationAdapter.ViewHolder(view);
         return holder;
     }
 
     @Override
     public int getItemCount() {
-        return mLocationnames.size();
+        return mLocationNames.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

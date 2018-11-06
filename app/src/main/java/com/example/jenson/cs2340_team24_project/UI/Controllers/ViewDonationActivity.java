@@ -81,7 +81,7 @@ public class ViewDonationActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recycler_view1);
-        DonationAdpater adapter = new DonationAdpater(this, donations);
+        DonationAdapter adapter = new DonationAdapter(this, donations);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
