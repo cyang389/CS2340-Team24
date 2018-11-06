@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Name" />
+        android:text="@string/Name" />
 
     <EditText
         android:id="@+id/searchDonationNameEdit"
@@ -32,7 +32,7 @@
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Category" />
+        android:text="@string/Category" />
 
     <Spinner
         android:id="@+id/searchDonationCategorySpinner"
@@ -45,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_marginTop="12dp"
         android:layout_height="wrap_content"
-        android:text="Location" />
+        android:text="@string/Location" />
 
     <Spinner
         android:id="@+id/searchDonationLocationSpinner"
@@ -58,12 +58,12 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search" />
+        android:text="@string/search" />
 
     <Button
         android:id="@+id/searchDonationCancelButton"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cancel" />
+        android:text="@string/cancel" />
 </LinearLayout>

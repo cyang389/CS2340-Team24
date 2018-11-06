@@ -11,7 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1">
 
         <LinearLayout
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Location" />
+                android:text="@string/Location" />
 
             <Spinner
                 android:id="@+id/locationSpinner"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Short Description" />
+                android:text="@string/shortDescriptionHint" />
 
             <EditText
                 android:id="@+id/shortDescriptionEditText"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Full Description" />
+                android:text="@string/fullDescriptionHint" />
 
             <EditText
                 android:id="@+id/fullDescriptionEditText"
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Value (Dollar)" />
+                android:text="@string/valueHint" />
 
             <EditText
                 android:id="@+id/valueEditText"
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Category" />
+                android:text="@string/Category" />
 
             <Spinner
                 android:id="@+id/categorySpinner"
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:text="Comment" />
+                android:text="@string/commentHint" />
 
             <EditText
                 android:id="@+id/commentEditText"
@@ -139,14 +139,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Add" />
+                android:text="@string/add" />
 
             <Button
                 android:id="@+id/addDonationCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel" />
+                android:text="@string/cancel" />
         </LinearLayout>
     </ScrollView>
 

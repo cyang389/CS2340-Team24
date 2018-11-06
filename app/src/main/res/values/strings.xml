@@ -11,6 +11,7 @@
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="username">Username</string>
 
     <!-- Strings related to register -->
     <string name="prompt_register">Register</string>
@@ -30,4 +31,22 @@
 
     <!-- Strings related to searchDonation -->
     <string name="searchDonationHint">Name</string>
+
+    <string name="Location">Location</string>
+    <string name="Category">Category</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="ViewLocations">View Locations</string>
+    <string name="SearchDonation">Search Donation</string>
+    <string name="Map">Map</string>
+    <string name="Name">Name</string>
+    <string name="ViewDonations">View Donation</string>
+    <string name="back">Back</string>
+
+    <string name="Welcome">Welcome</string>
+    <string name="search">Search</string>
+
+    <string name="addDonation">Add Donation</string>
+    <string name="textView">TextView</string>
+    <string name="Test">TEST</string>
 </resources>

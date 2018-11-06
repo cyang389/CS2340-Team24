@@ -8,7 +8,7 @@
         tools:context=".UI.Controllers.HomeActivity">
 
     <TextView
-            android:text="Welcome"
+            android:text="@string/Welcome"
             android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="86dp"
         android:layout_marginTop="57dp"
-        android:text="Login"
+        android:text="@string/action_sign_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="86dp"
         android:layout_marginTop="56dp"
-        android:text="Register"
+        android:text="@string/prompt_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 </android.support.constraint.ConstraintLayout>

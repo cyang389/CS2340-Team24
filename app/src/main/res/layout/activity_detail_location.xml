@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/name"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
     <TextView
@@ -35,9 +35,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/type"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
     <TextView
@@ -45,9 +45,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/longitude"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
     <TextView
@@ -55,9 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/latitude"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
     <TextView
@@ -65,9 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/address"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
     <TextView
@@ -75,9 +75,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/phone"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
     <TextView
@@ -85,9 +85,9 @@
         android:layout_height="wrap_content"
         android:layout_weight="5"
         android:id="@+id/website"
-        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="7dp"
-        android:text="name"
+        android:text="@string/Name"
         android:textSize="15sp"
         android:textColor="#000"/>
 
@@ -98,7 +98,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
         android:layout_weight="1"
-        android:text="View Donations" />
+        android:text="@string/ViewDonations" />
 
     <Button
         android:id="@+id/detailLocationBack"
@@ -107,7 +107,7 @@
         android:layout_weight="1"
         android:layout_marginLeft="100dp"
         android:layout_marginRight="100dp"
-        android:text="Back" />
+        android:text="@string/back" />
 
 
 </LinearLayout>
