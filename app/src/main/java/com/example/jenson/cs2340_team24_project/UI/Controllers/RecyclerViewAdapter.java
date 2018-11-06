@@ -1,5 +1,6 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -33,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.locationname.setText(mLocationnames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -57,6 +57,7 @@ public class DetailLocationActivity extends AppCompatActivity {
                 String name = getIntent().getStringExtra("location_name");
                 for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
                     Location l = locationSnapshot.getValue(Location.class);
+                    assert l != null;
                     if (l.getName().equals(name)) {
                         location = l;
                         break;
@@ -82,13 +83,21 @@ public class DetailLocationActivity extends AppCompatActivity {
         TextView phone = findViewById(R.id.phone);
         TextView website = findViewById(R.id.website);
 
-        name.setText("Name: " + location.getName());
-        type.setText("Type: " + location.getType());
-        longitude.setText("Longitude: " + location.getLongtitude());
-        latitude.setText("Latitude: " + location.getLatitude());
-        address.setText("Address: " + location.getAddress());
-        phone.setText("Phone: " + location.getPhone());
-        website.setText("Website: " + location.getWebsite());
+        String nameS = "Name: " + location.getName();
+        String typeS = "Type: " + location.getType();
+        String longtitudeS = "Longitude: " + location.getLongtitude();
+        String latitudeS = "Latitude: " + location.getLatitude();
+        String addressS = "Address: " + location.getAddress();
+        String phoneS = "Phone: " + location.getPhone();
+        String websiteS = "Website: " + location.getWebsite();
+
+        name.setText(nameS);
+        type.setText(typeS);
+        longitude.setText(longtitudeS);
+        latitude.setText(latitudeS);
+        address.setText(addressS);
+        phone.setText(phoneS);
+        website.setText(websiteS);
     }
 
 

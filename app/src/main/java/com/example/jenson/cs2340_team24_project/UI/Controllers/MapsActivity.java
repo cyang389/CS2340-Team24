@@ -1,5 +1,6 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -87,7 +88,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 @Override
                 public View getInfoContents(Marker marker) {
-                    View v = getLayoutInflater().inflate(R.layout.info_window, null);
+                    @SuppressLint("InflateParams") View v = getLayoutInflater().inflate(R.layout.info_window, null);
                     TextView tvName = v.findViewById(R.id.nameView1);
                     TextView tvTel = v.findViewById(R.id.telView1);
 
@@ -97,10 +98,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             location = l;
                         }
                     }
-                    tvName.setText("Name: " + location.getName());
-                    tvTel.setText("Tel: " + location.getPhone());
-
-
+                    String nameS = "Name: " + location.getName();
+                    String telS = "Tel: " + location.getPhone();
+                    tvName.setText(nameS);
+                    tvTel.setText(telS);
                     return v;
                 }
             });

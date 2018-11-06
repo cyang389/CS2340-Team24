@@ -25,7 +25,8 @@
         android:ems="10"
         android:hint="@string/searchDonationHint"
         android:inputType="textPersonName"
-        android:text="" />
+        android:text=""
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/searchDonationCategoryText"

@@ -60,12 +60,20 @@ public class DetailDonationActivity extends AppCompatActivity {
         TextView category = findViewById(R.id.donationCategory);
         TextView comments = findViewById(R.id.donationComments);
 
-        time.setText("Time: " + donation.getDonationTime());
-        location.setText("Location: " + donation.getLocation());
-        shortDescription.setText("Short Description: " + donation.getShortDescription());
-        fullDescription.setText("Full Description: " + donation.getFullDescription());
-        value.setText("Value: " + donation.getValue());
-        category.setText("Category: " + donation.getType());
-        comments.setText("Comments: " + donation.getComments());
+        String timeS = "Time: " + donation.getDonationTime();
+        String locationS = "Location: " + donation.getLocation();
+        String shortDescriptionS = "Short Description: " + donation.getShortDescription();
+        String fullDescriptionS = "Full Description: " + donation.getFullDescription();
+        String valueS = "Value: " + donation.getValue();
+        String categoryS = "Category: " + donation.getType();
+        String commentS = "Comments: " + donation.getComments();
+
+        time.setText(timeS);
+        location.setText(locationS);
+        shortDescription.setText(shortDescriptionS);
+        fullDescription.setText(fullDescriptionS);
+        value.setText(valueS);
+        category.setText(categoryS);
+        comments.setText(commentS);
     }
 }

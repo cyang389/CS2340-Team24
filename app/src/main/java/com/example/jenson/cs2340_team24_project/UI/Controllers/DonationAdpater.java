@@ -1,5 +1,6 @@
 package com.example.jenson.cs2340_team24_project.UI.Controllers;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,7 +25,7 @@ public class DonationAdpater extends RecyclerView.Adapter<DonationAdpater.ViewHo
         this.mContext = context;
     }
     @Override
-    public void onBindViewHolder(@NonNull DonationAdpater.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull DonationAdpater.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         holder.locationName.setText(mLocationnames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override

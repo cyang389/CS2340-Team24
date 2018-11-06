@@ -12,7 +12,8 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +34,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/label1"
-                android:inputType="date" />
+                android:inputType="date"
+                android:autofillHints="" />
 
             <TextView
                 android:id="@+id/locationTextView"
@@ -65,7 +67,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/shortDescriptionHint"
-                android:inputType="text" />
+                android:inputType="text"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/fullDescriptionTextView"
@@ -82,7 +85,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/fullDescriptionHint"
-                android:inputType="text" />
+                android:inputType="text"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/valueTextView"
@@ -99,7 +103,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="@string/valueHint"
-                android:inputType="number" />
+                android:inputType="number"
+                android:importantForAutofill="no" />
 
             <TextView
                 android:id="@+id/categoryTextView"
@@ -132,7 +137,8 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="@string/commentHint"
-                android:text="" />
+                android:text=""
+                android:importantForAutofill="no" />
 
             <Button
                 android:id="@+id/addButton"
