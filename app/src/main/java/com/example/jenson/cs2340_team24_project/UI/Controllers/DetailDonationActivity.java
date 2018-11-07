@@ -14,7 +14,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
 
+
+/**
+ * Detail donation page
+ */
 public class DetailDonationActivity extends AppCompatActivity {
     private Donation donation;
     private DatabaseReference databaseDonations;
@@ -35,7 +40,7 @@ public class DetailDonationActivity extends AppCompatActivity {
                 String name = getIntent().getStringExtra("donation_name");
                 for (DataSnapshot donationSnapshot : dataSnapshot.getChildren()) {
                     Donation d = donationSnapshot.getValue(Donation.class);
-                    if (d.getShortDescription().equals(name)) {
+                    if (Objects.requireNonNull(d).getShortDescription().equals(name)) {
                         donation = d;
                         break;
                     }

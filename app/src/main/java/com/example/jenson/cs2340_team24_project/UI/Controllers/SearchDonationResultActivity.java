@@ -16,6 +16,7 @@ import com.example.jenson.cs2340_team24_project.UI.Models.DonationType;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -72,7 +73,7 @@ public class SearchDonationResultActivity extends AppCompatActivity {
                 for (DataSnapshot donationSnapshot : dataSnapshot.getChildren()) {
                     Donation d = donationSnapshot.getValue(Donation.class);
                     if (location.equals("ALL LOCATIONS")) {
-                        if (category.equals(DonationType.NOTYPE) || d.getType().equals(category)) {
+                        if (category.equals(DonationType.NOTYPE) || Objects.requireNonNull(d).getType().equals(category)) {
                             donations.add(d.getShortDescription());
                         }
                     } else {
