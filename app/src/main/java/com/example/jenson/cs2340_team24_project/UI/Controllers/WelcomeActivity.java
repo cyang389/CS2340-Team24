@@ -19,6 +19,9 @@ import java.nio.charset.StandardCharsets;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
+/**
+ * The activity that generates the welcome screen
+ */
 public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

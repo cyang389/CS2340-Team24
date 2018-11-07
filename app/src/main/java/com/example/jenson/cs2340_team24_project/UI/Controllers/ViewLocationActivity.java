@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * The activity where you view all the store locations
+ */
 public class ViewLocationActivity extends AppCompatActivity {
 
     private static final String TAG = "ViewLocationActivity";

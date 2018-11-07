@@ -25,6 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 @SuppressWarnings("ALL")
+/**
+ * The activity where you register a new user.
+ */
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText mPasswordField;

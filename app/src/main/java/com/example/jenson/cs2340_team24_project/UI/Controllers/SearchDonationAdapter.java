@@ -16,6 +16,9 @@ import com.example.jenson.cs2340_team24_project.R;
 
 import java.util.ArrayList;
 
+/**
+ * The adapter to generate the layout for results of a donation search.
+ */
 public class SearchDonationAdapter extends RecyclerView.Adapter<SearchDonationAdapter.ViewHolder> {
     private final ArrayList<String> mLocationNames;
     private final Context mContext;

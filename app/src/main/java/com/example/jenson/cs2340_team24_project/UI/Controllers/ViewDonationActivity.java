@@ -20,6 +20,9 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * The activity where you view all the donations at a specific location.
+ */
 public class ViewDonationActivity extends AppCompatActivity {
 
     private final ArrayList<String> donations = new ArrayList<>();

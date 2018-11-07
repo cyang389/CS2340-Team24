@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @SuppressWarnings("ALL")
+/**
+ * The activity where you can search a specific donation.
+ */
 public class SearchDonationActivity extends AppCompatActivity {
     private String name;
     private String location;

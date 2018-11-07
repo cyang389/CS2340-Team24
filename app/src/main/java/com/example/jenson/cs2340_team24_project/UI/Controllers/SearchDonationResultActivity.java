@@ -26,6 +26,9 @@ import com.google.firebase.database.ValueEventListener;
 import me.xdrop.fuzzywuzzy.FuzzySearch;
 import me.xdrop.fuzzywuzzy.model.ExtractedResult;
 
+/**
+ * The activity where you view the result of a donation search.
+ */
 public class SearchDonationResultActivity extends AppCompatActivity {
     private String name;
     private String location;
