@@ -7,8 +7,8 @@ public class User {
     public static final List<Responsibility> legalResponsibilities = Arrays.asList(Responsibility.values());
 
     private String _email;
-    protected String _username;
-    protected Responsibility _res;
+    private String _username;
+    private Responsibility _res;
     protected boolean acctState;
 
     public User(String email, String username, Responsibility r) {

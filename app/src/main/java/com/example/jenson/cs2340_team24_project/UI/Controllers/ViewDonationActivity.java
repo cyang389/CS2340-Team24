@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ViewDonationActivity extends AppCompatActivity {
 
@@ -64,7 +65,7 @@ public class ViewDonationActivity extends AppCompatActivity {
                 String name = getIntent().getStringExtra("location_name");
                 for (DataSnapshot donationSnapshot : dataSnapshot.getChildren()) {
                     Donation d = donationSnapshot.getValue(Donation.class);
-                    if (d.getLocation().equals(name)) {
+                    if (Objects.requireNonNull(d).getLocation().equals(name)) {
                         donations.add(d.getShortDescription());
                     }
                 }

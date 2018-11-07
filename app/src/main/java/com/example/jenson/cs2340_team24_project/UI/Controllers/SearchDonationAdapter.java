@@ -39,6 +39,7 @@ public class SearchDonationAdapter extends RecyclerView.Adapter<SearchDonationAd
         });
     }
 
+    @NonNull
     @SuppressWarnings("UnnecessaryLocalVariable")
     @Override
     public SearchDonationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

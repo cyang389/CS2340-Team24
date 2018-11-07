@@ -39,6 +39,7 @@ public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHo
         });
     }
 
+    @NonNull
     @Override
     public DonationAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_listitem, parent, false);

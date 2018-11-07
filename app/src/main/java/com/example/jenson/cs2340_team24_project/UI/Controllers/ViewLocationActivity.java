@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.example.jenson.cs2340_team24_project.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.example.jenson.cs2340_team24_project.UI.Models.Location;
 
@@ -57,7 +58,7 @@ public class ViewLocationActivity extends AppCompatActivity {
                 mLocationNames.clear();
                 for (DataSnapshot locationSnapshot : dataSnapshot.getChildren()) {
                     Location l = locationSnapshot.getValue(Location.class);
-                    mLocationNames.add(l.getName());
+                    mLocationNames.add(Objects.requireNonNull(l).getName());
                 }
                 initRecyclerView();
             }
