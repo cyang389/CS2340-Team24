@@ -85,7 +85,7 @@ public class DetailLocationActivity extends AppCompatActivity {
 
         String nameS = "Name: " + location.getName();
         String typeS = "Type: " + location.getType();
-        String longtitudeS = "Longitude: " + location.getLongtitude();
+        String longitudeS = "Longitude: " + location.getLongtitude();
         String latitudeS = "Latitude: " + location.getLatitude();
         String addressS = "Address: " + location.getAddress();
         String phoneS = "Phone: " + location.getPhone();
@@ -93,7 +93,7 @@ public class DetailLocationActivity extends AppCompatActivity {
 
         name.setText(nameS);
         type.setText(typeS);
-        longitude.setText(longtitudeS);
+        longitude.setText(longitudeS);
         latitude.setText(latitudeS);
         address.setText(addressS);
         phone.setText(phoneS);

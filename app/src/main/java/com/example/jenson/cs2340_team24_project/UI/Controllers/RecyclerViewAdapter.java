@@ -18,11 +18,11 @@ import java.util.ArrayList;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
-    private final ArrayList<String> mLocationnames;
+    private final ArrayList<String> mLocationNames;
     private final Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> mLocationnames) {
-        this.mLocationnames = mLocationnames;
+    public RecyclerViewAdapter(Context context, ArrayList<String> mLocationNames) {
+        this.mLocationNames = mLocationNames;
         this.mContext = context;
     }
 
@@ -35,14 +35,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-        holder.locationname.setText(mLocationnames.get(position));
+        holder.locationName.setText(mLocationNames.get(position));
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, mLocationnames.get(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, mLocationNames.get(position), Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(mContext, DetailLocationActivity.class);
-                intent.putExtra("location_name", mLocationnames.get(position));
+                intent.putExtra("location_name", mLocationNames.get(position));
                 mContext.startActivity(intent);
             }
         });
@@ -50,16 +50,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public int getItemCount() {
-        return mLocationnames.size();
+        return mLocationNames.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        final TextView locationname;
+        final TextView locationName;
         final RelativeLayout parentLayout;
         ViewHolder(View itemView) {
             super(itemView);
-            locationname = itemView.findViewById(R.id.locationname);
+            locationName = itemView.findViewById(R.id.locationname);
             parentLayout = itemView.findViewById(R.id.parent_layout);
         }
     }
