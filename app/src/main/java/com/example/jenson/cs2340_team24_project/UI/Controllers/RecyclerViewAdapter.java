@@ -16,7 +16,9 @@ import com.example.jenson.cs2340_team24_project.R;
 
 import java.util.ArrayList;
 
-
+/**
+ * Adapter for recycler view in View Location Activity
+ */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     private final ArrayList<String> mLocationNames;
     private final Context mContext;

@@ -27,6 +27,9 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
+/**
+ * Maps page
+ */
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;

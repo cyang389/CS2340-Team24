@@ -8,6 +8,9 @@ import android.widget.Button;
 
 import com.example.jenson.cs2340_team24_project.R;
 
+/**
+ * Welcome Page
+ */
 public class HomeActivity extends AppCompatActivity {
 
     @Override

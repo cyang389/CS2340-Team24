@@ -21,6 +21,9 @@ import java.util.Arrays;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 
+/**
+ * Add a donation to the database
+ */
 @SuppressWarnings("ALL")
 public class AddDonationActivity extends AppCompatActivity {
     private EditText mShortDescription;

@@ -12,6 +12,10 @@ import com.example.jenson.cs2340_team24_project.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Home page
+ */
+
 public class ApplicationActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;

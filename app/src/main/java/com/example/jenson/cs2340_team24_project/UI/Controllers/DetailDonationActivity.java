@@ -17,6 +17,9 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Objects;
 
 
+/**
+ * Detail donation page
+ */
 public class DetailDonationActivity extends AppCompatActivity {
     private Donation donation;
     private DatabaseReference databaseDonations;

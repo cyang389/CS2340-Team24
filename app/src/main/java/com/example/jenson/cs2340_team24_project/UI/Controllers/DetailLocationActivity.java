@@ -17,6 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+/**
+ * Detail Location Page
+ */
 public class DetailLocationActivity extends AppCompatActivity {
 
     private Location location;

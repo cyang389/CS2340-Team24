@@ -16,6 +16,9 @@ import com.example.jenson.cs2340_team24_project.R;
 
 import java.util.ArrayList;
 
+/**
+ * Adapter for recycler view in View Donation Activity
+ */
 public class DonationAdapter extends RecyclerView.Adapter<DonationAdapter.ViewHolder> {
     private final ArrayList<String> mLocationNames;
     private final Context mContext;
