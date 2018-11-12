@@ -85,14 +85,7 @@ public class SearchDonationResultActivity extends AppCompatActivity {
                     }
                 }
                 if (!TextUtils.isEmpty(name)) {
-                    List<ExtractedResult> list = FuzzySearch.extractSorted(name, donations);
-                    donations.clear();
-                    //Toast.makeText(SearchDonationResultActivity.this, "No match.", Toast.LENGTH_LONG).show();
-                    for (ExtractedResult r : list) {
-                        if (r.getScore() >= 60) {
-                            donations.add(r.getString());
-                        }
-                    }
+                    fuzzySearch(name, donations);
                 }
                 initRecyclerView();
             }
@@ -111,5 +104,16 @@ public class SearchDonationResultActivity extends AppCompatActivity {
         SearchDonationAdapter adapter = new SearchDonationAdapter(this, donations);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    public void fuzzySearch(String name, ArrayList<String> donations) {
+        List<ExtractedResult> list = FuzzySearch.extractSorted(name, donations);
+        donations.clear();
+        //Toast.makeText(SearchDonationResultActivity.this, "No match.", Toast.LENGTH_LONG).show();
+        for (ExtractedResult r : list) {
+            if (r.getScore() >= 60) {
+                donations.add(r.getString());
+            }
+        }
     }
 }
