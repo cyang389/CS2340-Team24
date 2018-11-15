@@ -22,11 +22,12 @@ import com.google.firebase.auth.FirebaseAuth;
  * A login screen that offers login via email/password.
  */
 @SuppressWarnings("ALL")
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements LoginView {
     private EditText mPasswordField;
     private EditText mEmailField;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private LoginPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         btnLogin = findViewById(R.id.email_sign_in_button);
         btnCancel = findViewById(R.id.button2);
+
+        presenter = new LoginPresenter(this);
 
         if (firebaseAuth.getCurrentUser() != null) {
             finish();
@@ -65,6 +68,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void attemptLogin() {
+
+        presenter.attemptLogin();
+
         String email = mEmailField.getText().toString().trim();
         String password = mPasswordField.getText().toString().trim();
         if (TextUtils.isEmpty(email)) {
@@ -102,6 +108,76 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
         progressDialog.hide();
+    }
+
+    @Override
+    public String getEmail() {
+        return mEmailField.getText().toString().trim();
+    }
+
+    @Override
+    public String getPassword() {
+        return mPasswordField.getText().toString().trim();
+    }
+
+    @Override
+    public void setEmail(String email) {
+        email = mEmailField.getText().toString().trim();
+
+    }
+
+    @Override
+    public void setPassword(String password) {
+        password = mPasswordField.getText().toString().trim();
+    }
+
+    @Override
+    public void showEmailError(int error_invalid_email) {
+        Toast.makeText(this,
+                "Please enter email to log in.",
+                Toast.LENGTH_LONG).show();
+        return;
+    }
+
+    @Override
+    public void showPasswordError(int error_invalid_password) {
+        Toast.makeText(this,
+                "Please enter password to log in.",
+                Toast.LENGTH_LONG).show();
+        return;
+    }
+
+    @Override
+    public void startMainActivity() {
+
+        String email = mEmailField.getText().toString().trim();
+        String password = mPasswordField.getText().toString().trim();
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            progressDialog.dismiss();
+                            Toast.makeText(LoginActivity.this,
+                                    "You have logged in.",
+                                    Toast.LENGTH_LONG).show();
+                            finish();
+                            Intent i = new Intent(LoginActivity.this, ApplicationActivity.class);
+                            startActivity(i);
+                        } else {
+                            Toast.makeText(LoginActivity.this,
+                                    "Login failed.",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+    }
+
+    @Override
+    public void showLoginError() {
+        Toast.makeText(LoginActivity.this,
+                "Login failed.",
+                Toast.LENGTH_LONG).show();
     }
 }
 
