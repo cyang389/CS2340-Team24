@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jenson.cs2340_team24_project.R;
@@ -27,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mEmailField;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    private TextView forgotPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         btnLogin = findViewById(R.id.email_sign_in_button);
         btnCancel = findViewById(R.id.button2);
+        forgotPassword = findViewById((R.id.tvForgotPassword));
 
         if (firebaseAuth.getCurrentUser() != null) {
             finish();
@@ -60,6 +63,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 attemptLogin();
+            }
+        });
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class));
             }
         });
     }
